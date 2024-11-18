@@ -190,11 +190,15 @@
 
                         El eje "x" representa el número de clusters k y el eje "y" representa la métrica "Avg. within centroid distance" calculada para cada k.
 
-                        En este caso, ajustamos el operador "Loop Parameters" para explorar desde k = 2 hasta k = 100 con 30 steps.
+                        En este caso, ajustamos el operador "Loop Parameters" para explorar desde k = 2 hasta k = 30 con 20 steps.
                     </p>
 
                     <div class="d-flex justify-content-start align-items-start">
                         <img src="../../Assets/research_images/userInterestAssets/elbow.png" class="img-fluid"
+                            style="width: 60%;">
+                    </div>
+                    <div class="d-flex justify-content-start align-items-start">
+                        <img src="../../Assets/research_images/userInterestAssets/elbowAvg.png" class="img-fluid"
                             style="width: 60%;">
                     </div>
 
@@ -202,21 +206,42 @@
                         Una vez creada la representación grafica, podemos observar que La gráfica sigue una tendencia decreciente, lo que es esperado. A medida que aumenta el número de clusters, 
                         la distancia promedio al centroide disminuye porque hay más clusters para capturar las variaciones dentro de los datos.
 
-                        El "codo" es el punto en el cual la reducción en la distancia promedio comienza a ser menos significativa. En este caso, el codo parece encontrarse alrededor de k = 15. Esto significa que hasta 
-                        k = 15 agregar más clusters resulta en una mejora sustancial en la compactación de los clusters. Más allá de k=15, la mejora es marginal.
+                        El "codo" es el punto en el cual la reducción en la distancia promedio comienza a ser menos significativa. En este caso, el codo parece encontrarse alrededor de k = 12. Esto significa que hasta 
+                        k = 12 agregar más clusters resulta en una mejora sustancial en la compactación de los clusters. Más allá de k=12, la mejora es marginal.
 
-                        Si tomamos k = 15 balancea una buena segmentación de los datos sin sobreajustar (demasiados clusters).
+                        Si tomamos k = 12 balancea una buena segmentación de los datos sin sobreajustar demasiado.
 
                     </p>
 
-                    <h5>Luego de ejecutar el algoritmo obtenemos el siguiente resultado</h5>
+
+                    <p>
+                        También podemos calcular el k mas eficiente a través del metodo de Davies Boudin, este valor representa la relación entre la compacidad de los clusters y su separación.
+                        En este caso, debemos buscar el punto donde el índice es más bajo, ya que esto indica el mejor k.
+                        Con los mismos parametros que ejecutamos el anterior obtenemos los siguientes resultados.
+                    </p>
+
+                    <div class="d-flex justify-content-start align-items-start">
+                        <img src="../../Assets/research_images/userInterestAssets/daviesBoudinK.png" class="img-fluid"
+                            style="width: 60%;">
+                    </div>
+                    <div class="d-flex justify-content-start align-items-start">
+                        <img src="../../Assets/research_images/userInterestAssets/daviesBoudin.png" class="img-fluid"
+                            style="width: 60%;">
+                    </div>
+
+                    <p>
+                        Podemos observar que si tomamos un k = 12 es un valor optimo según este método para no sobreajustar el algoritmo, lo cual concuerda con el índice obtenido en "Avg. within centroid distance".
+                    </p>
+
+
+                    <h5>Luego de seleccionado el k ejecutamos el algoritmo y obtenemos el siguiente resultado</h5>
                     <div class="d-flex justify-content-start align-items-start">
                         <img src="../../Assets/research_images/userInterestAssets/clusters.png" class="img-fluid"
                             style="width: 60%;">
                     </div>
 
                     <p>El eje "x" representa la característica "Interests" de los datos, previamente normalizada y El eje "y" representa la característica "Age" también normalizada.
-                        Cada color denota un cluster único, con un total de 15 clusters representados.
+                        Cada color denota un cluster único, con un total de 12 clusters representados.
                         Los clusters parecen estar distribuidos de forma razonable, con diferenciación visible en ciertas regiones. Sin embargo, algunos clusters parecen solaparse o tener menos separación clara.
                         Esto se debe a la naturaleza de los datos ya que pueden haber personas de diferentes edades con los mismos intereses o viceversa, estos atributos no son completamente independientes ni perfectamente discriminantes.
                     </p>
@@ -227,35 +252,11 @@
                     </div>
 
                     <p>En este caso, el eje "x" representa la característica "Interests" de los datos, previamente normalizada y El eje "y" representa la característica "Gender".
-                        Cada color denota un cluster único, con un total de 15 clusters representados.
+                        Cada color denota un cluster único, con un total de 12 clusters representados.
                         La separación clara en dos líneas horizontales (-1 y 1) indica que los datos se distribuyen únicamente entre dos géneros, lo que significa que el atributo no tiene valores intermedios.
                         También se observa que los colores de los clusters están mezclados dentro de los valores de Interests, lo que indica que los intereses no son un atributo completamente discriminante para separar los clusters, esto es un reflejo de la naturaleza de los datos, donde diferentes personas comparten intereses similares independientemente del género.
                         Algunos clusters ocupan rangos amplios en el eje de Interests, lo que sugiere una mayor diversidad en los intereses dentro de esos grupos.
                     </p>
-                    <h6>Comparison of Confusion Matrices:</h6>
-                    <ul>
-                        <li><strong>Overall accuracy improvement:</strong> Increased from 49.82% to 65.61%, indicating
-                            better model performance by removing irrelevant attributes.</li>
-                        <li><strong>Class precision:</strong> The precision of the "Won" class improved from 60.18% to
-                            70.63%, and the "Lost" class increased from 55.56% to 73.68%. The "Draw" class also
-                            improved, going from 29.27% to 50.60%.</li>
-                    </ul>
-                    <h5>Other Feature Selection Techniques</h5>
-                    <ul>
-                        <li>The Backward Elimination technique improved accuracy, but was inferior to Forward Selection.
-                        </li>
-                        <li>Optimize Selection matched Forward Selection's accuracy but did not exceed it.</li>
-                    </ul>
-
-                    <h5>Now lets try with decision tree</h5>
-                    <div class="d-flex justify-content-start align-items-start">
-                        <img src="../../Assets/research_images/decision_process.png" class="img-fluid"
-                            style="width: 60%;">
-                    </div>
-                    <p>After run process, it shows a new matrix</p>
-                    <div class="d-flex justify-content-start align-items-start">
-                        <img src="../../Assets/research_images/decision_tree.png" class="img-fluid">
-                    </div>
                 </div>
             </div>
         </div>
