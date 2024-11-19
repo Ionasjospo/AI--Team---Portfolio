@@ -113,26 +113,11 @@
                         <div class="d-flex justify-content-start align-items-start">
                             <img src="../../Assets/research_images/country.png" class="img-fluid">
                         </div>
-                        <li><strong>neutral:</strong> A TRUE/FALSE column indicating whether the match was played at a
-                            neutral venue.<br>
-                            The distribution of the neutral variable is binary, with a predominance of *FALSE* values,
-                            indicating that most of Uruguay's matches were not played at a neutral venue. No outliers
-                            are present.
-                        </li>
-                        <div class="d-flex justify-content-start align-items-start">
-                            <img src="../../Assets/research_images/neutral.png" class="img-fluid">
-                        </div>
                     </ul>
                     <p>Using the Generate Attributes operator, we created a new column called Uruguay_results. This
                         column indicates whether Uruguay won, drew, or lost the match. The logic within the operator is
                         as follows:</p>
-                    <pre>
-if(home_team == "Uruguay" && home_score > away_score, "Won",
-   if(home_team == "Uruguay" && home_score < away_score, "Lost",
-      if(away_team == "Uruguay" && away_score > home_score, "Won",
-         if(away_team == "Uruguay" && away_score < home_score, "Lost",
-            "Draw"))))
-                    </pre>
+
                     <p>The distribution is: It has a categorical distribution of Uruguay's results. The distribution
                         shows that the team has won most matches, followed by losses and, to a lesser extent, draws.</p>
                     <div class="d-flex justify-content-start align-items-start">
