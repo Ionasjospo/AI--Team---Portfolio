@@ -35,82 +35,85 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-md-12">
-                    <h4 style="text-align: center;">Predict of Uruguay football match results</h4>
+                    <h4 style="text-align: center;">Segment social media users</h4>
                     <div class="d-flex justify-content-center align-items-center">
-                        <img src="Assets/research_images/lucho.jpg" class="img-fluid">
                     </div>
                     <p><strong>Introduction:</strong><br>
                         Based on the Kaggle dataset available in <a
                             href="https://www.kaggle.com/datasets/arindamsahoo/social-media-users"
-                            target="_blank">Social-Media-Users-Dataset</a>, este proyecto tiene como objetivo desarrollar una metodología para segmentar a los usuarios de una red social según sus intereses comunes. 
-                            La segmentación permitirá sugerir conexiones entre usuarios con afinidades similares, facilitando la creación de comunidades más significativas y mejorando la experiencia de usuario. 
-                            La segmentación por intereses no solo aumenta la probabilidad de conexiones exitosas, sino que también optimiza el contenido recomendado en función de lo que los usuarios valoran y comparten en común.
-                            Este dataset cuenta con mas de 100.000 filas lo cual es ideal para este análisis.
+                            target="_blank">Social-Media-Users-Dataset</a>, this project aims to develop a methodology to segment social media users based on their common interests. 
+                        Segmentation will allow suggesting connections between users with similar affinities, facilitating the creation of more meaningful communities and enhancing the user experience. 
+                        Interest-based segmentation not only increases the likelihood of successful connections but also optimizes recommended content based on what users value and share in common. 
+                        This dataset contains over 100,000 rows, which makes it ideal for this analysis.
                     </p>
                     <p><strong>Why did I choose this case study?</strong><br>
-                        Elegí este caso para estudiar porque la segmentación de usuarios en redes sociales es un tema de gran relevancia en el mundo digital actual. 
-                        En un entorno donde las plataformas compiten por captar y retener usuarios, ofrecer experiencias personalizadas se ha convertido en una estrategia clave. 
-                        La agrupación de usuarios por intereses comunes no solo permite mejorar las recomendaciones de amistad y contenido, sino que también fomenta interacciones significativas y la creación de comunidades virtuales que enriquecen la experiencia de los usuarios.
+                        I chose this case study because user segmentation in social media is a highly relevant topic in today's digital world. 
+                        In an environment where platforms compete to attract and retain users, offering personalized experiences has become a key strategy. 
+                        Grouping users based on common interests not only improves friend and content recommendations but also fosters meaningful interactions and the creation of virtual communities that enrich the user experience.
                     </p>
                     <p><strong>Objectives:</strong><br>
-                        El enfoque de este proyecto es agrupar a los usuarios en función de sus intereses comunes. Al identificar grupos de usuarios con intereses similares a través de algún algoritmo de aprendizaje no supervisado.
+                        The focus of this project is to group users based on their common interests by identifying groups of users with similar interests through an unsupervised learning algorithm.
                     </p>
                     <h5>Development</h5>
                     <h6>Analysis of attributes and their distributions:</h6>
                     <ul>
-
-                        <li><strong>UserID:</strong> Id del usuario.<br>
-                            Tiene una distribución uniforme (cada usuario tiene un ID único, sin valores repetidos).
+                    
+                        <li><strong>UserID:</strong> User ID.<br>
+                            It has a uniform distribution (each user has a unique ID with no repeated values).
                         </li>
-
-                        <li><strong>Name:</strong> Nombre del usuario.<br>
-                            No se identifican valores nulos ni vacíos.
+                    
+                        <li><strong>Name:</strong> User's name.<br>
+                            No null or empty values were identified.
                         </li>
-
-                        <li><strong>Gender:</strong> Representa el género de los usuarios: "Male" y "Female".<br>
-                            La proporción entre "Male" y "Female" está cercana al 50-50, lo que indica una distribución binomial casi equilibrada. 
-                            La distribución es ligeramente asimétrica hacia el género "Female", aunque la diferencia es mínima.
+                    
+                        <li><strong>Gender:</strong> Represents the users' gender: "Male" and "Female".<br>
+                            The proportion of "Male" and "Female" is close to 50-50, indicating a nearly balanced binomial distribution. 
+                            The distribution is slightly skewed toward "Female," though the difference is minimal.
                         </li>
                         <div class="d-flex justify-content-start align-items-start">
                             <img src="../../Assets/research_images/userInterestAssets/image.png" class="img-fluid" style="width: 30%;">
                         </div>
-                        <li><strong>DOB:</strong> Fecha de nacimiento de los usuarios.<br>
-                            En base a este atributo podriamos calcular la edad de cada usuario si fuese necesario.
-                            Al calcular la edad de los usuarios en un año específico (por ejemplo, 2024), las edades oscilarían entre: 20 años (nacidos en 2004) y 70 años (nacidos en 1954).
-                            Las edades siguen una distribución asimétrica hacia la derecha es decir, hay más usuarios jóvenes de entre 20 y 40 años que usuarios mayores a 50 años.
+                        <li><strong>DOB:</strong> Users' date of birth.<br>
+                            Based on this attribute, we could calculate the age of each user if needed.
+                            When calculating users' ages in a specific year (e.g., 2024), the ages would range from 20 years (born in 2004) to 70 years (born in 1954).
+                            The ages follow a right-skewed distribution, meaning there are more young users aged between 20 and 40 than users older than 50.
                         </li>
                         <div class="d-flex justify-content-start align-items-start">
                             <img src="../../Assets/research_images/userInterestAssets/imageDOB.png" class="img-fluid" style="width: 30%;">
                         </div>
-
-                        <li><strong>Interests:</strong> Lista de intereses por usuario.<br>
-                            La distribución de los intereses en este dataset proporciona una perspectiva clave sobre la variedad y frecuencia de los intereses entre los usuarios de redes sociales. 
-                            Este análisis es crucial para entender las preferencias generales de los usuarios y cómo estos intereses pueden agruparse para generar recomendaciones personalizadas.
-                            Los intereses están representados como un atributo polinómico, donde cada usuario puede tener una o más etiquetas de interés asociadas.
-
-                            Algunos usuarios tienen un único interés mientras que otros tienen varios. Esto puede analizarse agrupando a los usuarios por la cantidad de intereses listados.
-
-                            Es posible contar cuántas veces aparece cada interés o conjunto de intereses en el dataset. Por ejemplo: "Fashion": 142 ocurrencias.
+                    
+                        <div class="d-flex justify-content-start align-items-start">
+                            <img src="../../Assets/research_images/userInterestAssets/imageDob2.png" class="img-fluid" style="width: 30%;">
+                        </div>
+                    
+                        <li><strong>Interests:</strong> List of interests per user.<br>
+                            The distribution of interests in this dataset provides key insights into the variety and frequency of interests among social media users. 
+                            This analysis is crucial for understanding users' general preferences and how these interests can be grouped to generate personalized recommendations.
+                            Interests are represented as a polynomial attribute, where each user may have one or more associated interest tags.
+                    
+                            Some users have a single interest, while others have multiple. This can be analyzed by grouping users based on the number of listed interests.
+                    
+                            It is possible to count how many times each interest or set of interests appears in the dataset. For example: "Fashion": 142 occurrences.
                         </li>
                         <div class="d-flex justify-content-start align-items-start">
                             <img src="../../Assets/research_images/userInterestAssets/imageInterest.png" class="img-fluid" style="width: 30%;">
                         </div>
-
-                        <li><strong>City:</strong> Ciudad donde reside cada usuario.<br>
-                            La distribución de las ciudades está altamente sesgada, ya que la mayoría de las ciudades tienen un solo usuario registrado, solo unas pocas ciudades tienen más de un usuario, lo cual es 
-                            representativo de una dispersión poblacional amplia.
+                    
+                        <li><strong>City:</strong> City where each user resides.<br>
+                            The distribution of cities is highly skewed, as most cities have only one registered user, with only a few cities having more than one user, which 
+                            represents a wide population dispersion.
                         </li>
                         <div class="d-flex justify-content-start align-items-start">
-                            <img src="../../Assets/research_images/userInterestAssets/city.png"class="img-fluid" style="width: 30%;">
+                            <img src="../../Assets/research_images/userInterestAssets/city.png" class="img-fluid" style="width: 30%;">
                         </div>
                         <div class="d-flex justify-content-start align-items-start">
-                            <img src="../../Assets/research_images/userInterestAssets/city2.png"class="img-fluid" style="width: 30%;">
+                            <img src="../../Assets/research_images/userInterestAssets/city2.png" class="img-fluid" style="width: 30%;">
                         </div>
-
-                        <li><strong>Country:</strong> País donde reside el usuario<br>
-                            La distribución es positivamente sesgada dado que un pequeño grupo de países acumula la mayor cantidad de registros.
-                            La cola de la distribución muestra una gran cantidad de países con pocos registros, lo que es común en datasets de este tipo donde ciertas ubicaciones son más prominentes.
-                            No se identifican valores atípicos claros en la distribución. Los registros de países menos frecuentes son consistentes con la naturaleza del dataset.
+                    
+                        <li><strong>Country:</strong> Country where the user resides.<br>
+                            The distribution is positively skewed since a small group of countries accounts for the majority of records.
+                            The tail of the distribution shows many countries with few records, which is common in datasets of this type where certain locations are more prominent.
+                            No clear outliers were identified in the distribution. Records from less frequent countries are consistent with the nature of the dataset.
                         </li>
                         <div class="d-flex justify-content-start align-items-start">
                             <img src="../../Assets/research_images/userInterestAssets/country.png" class="img-fluid" style="width: 30%;">
@@ -118,144 +121,133 @@
                     </ul>
 
                     <h5>K-Means Model Application</h5>
-                    <p>Proceso creando en RapidMiner con el algoritmo Kmeans para segmentar a los usuarios de una red social según sus intereses comunes.</p>
+                    <p>Process created in RapidMiner using the K-Means algorithm to segment social media users based on their common interests.</p>
                     <div class="d-flex justify-content-start align-items-start">
-                        <img src="../../Assets/research_images/userInterestAssets/allProcess.png" class="img-fluid"
-                            style="width: 60%;">
-                        </div>
-
-                    <p>Sub proceso dentro de "Loop Parameters".</p>
+                        <img src="../../Assets/research_images/userInterestAssets/allProcess.png" class="img-fluid" style="width: 60%;">
+                    </div>
+                    
+                    <p>Sub-process within "Loop Parameters".</p>
                     <div class="d-flex justify-content-start align-items-start">
-                        <img src="../../Assets/research_images/userInterestAssets/subProcess.png" class="img-fluid"
-                            style="width: 60%;">
-                        </div>
-
-                    <p>1. Sample
-                        Su proposito es extraer una muestra de datos del conjunto original.
-                        Este operador se utiliza generalmente para manejar un subconjunto más manejable de datos cuando el dataset original es muy grande, permitiendo pruebas rápidas y evitando problemas de rendimiento.
+                        <img src="../../Assets/research_images/userInterestAssets/subProcess.png" class="img-fluid" style="width: 60%;">
+                    </div>
+                    
+                    <p>1. Sample:  
+                        Its purpose is to extract a sample of data from the original dataset.  
+                        This operator is generally used to handle a more manageable subset of data when the original dataset is very large, enabling quick testing and avoiding performance issues.
+                    </p>
+                    
+                    <p>2. Remove Duplicates:  
+                        Its purpose is to remove duplicate records from the dataset.  
+                        Duplicates can bias the clustering results by making certain clusters appear denser than they actually are.
+                    </p>
+                    
+                    <p>3. Date to Numerical:  
+                        The purpose is to convert date-type attributes (such as DOB) into numerical values.  
+                        Reason: Clustering algorithms cannot directly handle date-type data. In this case, it was used to calculate the age from the year of birth.
+                    </p>
+                    
+                    <p>4. Generate Attributes:  
+                        The purpose is to create derived attributes based on calculations.  
+                        This block was used to calculate the user's age from the date of birth (DOB), transforming it into a numerical attribute relevant for clustering.
+                    </p>
+                    
+                    <p>5. Select Attributes:  
+                        The purpose is to select the relevant attributes for the analysis.  
+                        Reason: Clustering works better with meaningful attributes, so we selected Age, Interests, and Gender as the most relevant for segmentation.
+                    </p>
+                    
+                    <p>6. Nominal to Numerical:  
+                        The purpose is to convert categorical (nominal) attributes into a numerical format.  
+                        K-Means requires all attributes to be numerical in order to calculate distances between points.
+                    </p>
+                    
+                    <p>7. Normalize:  
+                        The purpose is to scale the numerical attributes to a common range (e.g., [0,1] or z-standardized values).  
+                        K-Means is sensitive to the scale of attributes. Normalization ensures that no attribute dominates the distance calculation due to a broader range of values.
+                    </p>
+                    
+                    <p>8. Loop Parameters:  
+                        The purpose is to apply and optimize the clustering algorithm.  
+                        This operator is used to perform an iterative analysis with different configurations of the algorithm, such as the number of clusters k.  
+                        It sets the range of values for k and evaluates the performance of each model based on metrics such as the elbow method or cluster distance.
+                    </p>
+                    
+                    <p>9. K-Means Clustering:  
+                        The purpose is to group the data into k clusters based on similarities among the selected attributes.  
+                        This step generates the final clusters and assigns each record to a cluster.  
+                        The optimal number of clusters (k) must be determined based on previous tests. The Euclidean distance is used to measure similarity between points.
                     </p>
 
-                    <p>2. Remove Duplicates
-                       Su proposito es eliminar registros duplicados del conjunto de datos.
-                        Los duplicados pueden sesgar los resultados del clustering al hacer que ciertos clusters parezcan más densos de lo que realmente son.
-                    </p>
-
-                    <p>3. Date to Numerical
-                        El propósito es convertir atributos de tipo fecha (como DOB) a valores numéricos.
-                        Razón: Los algoritmos de clustering no pueden manejar directamente datos de tipo fecha. En este caso, se utilizó para calcular la edad a partir del año de nacimiento.
-                    </p>
-
-                    <p>4. Generate Attributes
-                        El proposito es crear atributos derivados basados en cálculos.
-                        Este bloque se utilizó para calcular la edad del usuario a partir de la fecha de nacimiento (DOB), transformándola en un atributo numérico relevante para el clustering.
-                    </p>
-
-                    <p>5. Select Attributes
-                        El proposito es seleccionar los atributos relevantes para el análisis.
-                        Razón: El clustering funciona mejor con atributos significativos. por lo que seleccionamos Age, Interests, y Gender como los más relevantes para la segmentación.
-                    </p>
-
-                    <p>6. Nominal to Numerical
-                        El proposito es convertir atributos categóricos (nominales) a un formato numérico.
-                        K-Means requiere que todos los atributos sean numéricos para calcular distancias entre puntos.
-                    </p>
-
-                    <p>7. Normalize
-                        El proposito es escalar los atributos numéricos a un rango común (por ejemplo, [0,1] o valores z-estandarizados).
-                        K-Means es sensible a la escala de los atributos. La normalización asegura que ningún atributo domine el cálculo de distancias debido a un rango más amplio de valores.
-                    </p>
-
-                    <p>8. Loop Parameters
-                       El proposito es aplicar y optimizar el algoritmo de clustering.
-                       Este operador se utiliza para realizar un análisis iterativo sobre diferentes configuraciones del algoritmo, como el número de clusters k.
-                       Se configura el rango de valores para k y evaluar el desempeño de cada modelo basado en métricas como el codo de la curva (elbow method) o la distancia entre clusters.
-                    </p>
-
-                    <p>9. K-Means Clustering
-                        El porposito es agrupar los datos en k clusters basados en similitudes entre los atributos seleccionados.
-                        Este paso genera los clusters finales y proporciona la asignación de cada registro a un cluster.
-                        Se debe terminar el número óptimo de clusters (k) basado en pruebas anteriores. Se utiliza la distancia euclidiana para medir la similitud entre puntos.
-                    </p>
 
 
-
-                    <h5>Selección del parametro k en K-Means</h5>
+                    <h5>Selection of the k Parameter in K-Means</h5>
                     <p>
-                        El operador Loop Parameters es clave para realizar experimentos iterativos con diferentes configuraciones de parámetros. En el caso del algoritmo de K-Means, 
-                        este operador permite probar diferentes valores de k para determinar cuál es el más adecuado.
-
-                        En este caso utilizamos el metodo denominado "Elbow Method". Es una técnica visual utilizada para determinar el número óptimo de clusters (k) en algoritmos de clustering
-
-                        Para realizar este método debemos configurar el operador de Cluster Distance Performance para calcular la métrica de "Avg. within centroid distance" en cada iteración.
-
-                        El eje "x" representa el número de clusters k y el eje "y" representa la métrica "Avg. within centroid distance" calculada para cada k.
-
-                        En este caso, ajustamos el operador "Loop Parameters" para explorar desde k = 2 hasta k = 30 con 20 steps.
+                        The Loop Parameters operator is key to performing iterative experiments with different parameter configurations. In the case of the K-Means algorithm, 
+                        this operator allows testing different values of k to determine the most suitable one.
+                    
+                        In this case, we used the method known as the "Elbow Method." It is a visual technique used to determine the optimal number of clusters (k) in clustering algorithms.
+                    
+                        To perform this method, we must configure the Cluster Distance Performance operator to calculate the metric "Avg. within centroid distance" in each iteration.
+                    
+                        The x-axis represents the number of clusters k, and the y-axis represents the metric "Avg. within centroid distance" calculated for each k.
+                    
+                        In this case, we adjusted the Loop Parameters operator to explore values from k = 2 to k = 30 with 20 steps.
                     </p>
-
+                    
                     <div class="d-flex justify-content-start align-items-start">
-                        <img src="../../Assets/research_images/userInterestAssets/elbow.png" class="img-fluid"
-                            style="width: 60%;">
+                        <img src="../../Assets/research_images/userInterestAssets/elbow.png" class="img-fluid" style="width: 60%;">
                     </div>
                     <div class="d-flex justify-content-start align-items-start">
-                        <img src="../../Assets/research_images/userInterestAssets/elbowAvg.png" class="img-fluid"
-                            style="width: 60%;">
+                        <img src="../../Assets/research_images/userInterestAssets/elbowAvg.png" class="img-fluid" style="width: 60%;">
                     </div>
-
+                    
                     <p>
-                        Una vez creada la representación grafica, podemos observar que La gráfica sigue una tendencia decreciente, lo que es esperado. A medida que aumenta el número de clusters, 
-                        la distancia promedio al centroide disminuye porque hay más clusters para capturar las variaciones dentro de los datos.
-
-                        El "codo" es el punto en el cual la reducción en la distancia promedio comienza a ser menos significativa. En este caso, el codo parece encontrarse alrededor de k = 12. Esto significa que hasta 
-                        k = 12 agregar más clusters resulta en una mejora sustancial en la compactación de los clusters. Más allá de k=12, la mejora es marginal.
-
-                        Si tomamos k = 12 balancea una buena segmentación de los datos sin sobreajustar demasiado.
-
+                        Once the graphical representation was created, we can observe that the graph follows a decreasing trend, as expected. As the number of clusters increases, 
+                        the average distance to the centroid decreases because there are more clusters to capture the variations within the data.
+                    
+                        The "elbow" is the point at which the reduction in the average distance starts to become less significant. In this case, the elbow appears to be around k = 12. This means that up to 
+                        k = 12, adding more clusters results in a substantial improvement in cluster compactness. Beyond k = 12, the improvement is marginal.
+                    
+                        Choosing k = 12 balances a good segmentation of the data without overfitting.
                     </p>
-
-
+                    
                     <p>
-                        También podemos calcular el k mas eficiente a través del metodo de Davies Boudin, este valor representa la relación entre la compacidad de los clusters y su separación.
-                        En este caso, debemos buscar el punto donde el índice es más bajo, ya que esto indica el mejor k.
-                        Con los mismos parametros que ejecutamos el anterior obtenemos los siguientes resultados.
+                        We can also calculate the most efficient k using the Davies-Bouldin Index, which represents the relationship between cluster compactness and separation.
+                        In this case, we need to find the point where the index is lowest, as this indicates the best k.
+                        With the same parameters as the previous method, we obtain the following results.
                     </p>
-
+                    
                     <div class="d-flex justify-content-start align-items-start">
-                        <img src="../../Assets/research_images/userInterestAssets/daviesBoudinK.png" class="img-fluid"
-                            style="width: 60%;">
+                        <img src="../../Assets/research_images/userInterestAssets/daviesBoudinK.png" class="img-fluid" style="width: 60%;">
                     </div>
                     <div class="d-flex justify-content-start align-items-start">
-                        <img src="../../Assets/research_images/userInterestAssets/daviesBoudin.png" class="img-fluid"
-                            style="width: 60%;">
+                        <img src="../../Assets/research_images/userInterestAssets/daviesBoudin.png" class="img-fluid" style="width: 60%;">
                     </div>
-
+                    
                     <p>
-                        Podemos observar que si tomamos un k = 12 es un valor optimo según este método para no sobreajustar el algoritmo, lo cual concuerda con el índice obtenido en "Avg. within centroid distance".
+                        We can observe that choosing k = 12 is an optimal value according to this method to avoid overfitting the algorithm, which aligns with the index obtained from the "Avg. within centroid distance" metric.
                     </p>
-
-
-                    <h5>Luego de seleccionado el k ejecutamos el algoritmo y obtenemos el siguiente resultado</h5>
+                    
+                    <h5>After selecting k, we executed the algorithm and obtained the following results</h5>
                     <div class="d-flex justify-content-start align-items-start">
-                        <img src="../../Assets/research_images/userInterestAssets/clusters.png" class="img-fluid"
-                            style="width: 60%;">
+                        <img src="../../Assets/research_images/userInterestAssets/clusters.png" class="img-fluid" style="width: 60%;">
                     </div>
-
-                    <p>El eje "x" representa la característica "Interests" de los datos, previamente normalizada y El eje "y" representa la característica "Age" también normalizada.
-                        Cada color denota un cluster único, con un total de 12 clusters representados.
-                        Los clusters parecen estar distribuidos de forma razonable, con diferenciación visible en ciertas regiones. Sin embargo, algunos clusters parecen solaparse o tener menos separación clara.
-                        Esto se debe a la naturaleza de los datos ya que pueden haber personas de diferentes edades con los mismos intereses o viceversa, estos atributos no son completamente independientes ni perfectamente discriminantes.
+                    
+                    <p>The x-axis represents the "Interests" feature of the data, previously normalized, and the y-axis represents the "Age" feature, also normalized.  
+                        Each color denotes a unique cluster, with a total of 12 clusters represented.  
+                        The clusters appear to be reasonably distributed, with visible differentiation in certain regions. However, some clusters seem to overlap or have less clear separation.  
+                        This is due to the nature of the data, as there may be people of different ages with the same interests or vice versa. These attributes are not completely independent or perfectly discriminative.
                     </p>
-
+                    
                     <div class="d-flex justify-content-start align-items-start">
-                        <img src="../../Assets/research_images/userInterestAssets/clustersGender.png" class="img-fluid"
-                            style="width: 60%;">
+                        <img src="../../Assets/research_images/userInterestAssets/clustersGender.png" class="img-fluid" style="width: 60%;">
                     </div>
-
-                    <p>En este caso, el eje "x" representa la característica "Interests" de los datos, previamente normalizada y El eje "y" representa la característica "Gender".
-                        Cada color denota un cluster único, con un total de 12 clusters representados.
-                        La separación clara en dos líneas horizontales (-1 y 1) indica que los datos se distribuyen únicamente entre dos géneros, lo que significa que el atributo no tiene valores intermedios.
-                        También se observa que los colores de los clusters están mezclados dentro de los valores de Interests, lo que indica que los intereses no son un atributo completamente discriminante para separar los clusters, esto es un reflejo de la naturaleza de los datos, donde diferentes personas comparten intereses similares independientemente del género.
-                        Algunos clusters ocupan rangos amplios en el eje de Interests, lo que sugiere una mayor diversidad en los intereses dentro de esos grupos.
+                    
+                    <p>In this case, the x-axis represents the "Interests" feature of the data, previously normalized, and the y-axis represents the "Gender" feature.  
+                        Each color denotes a unique cluster, with a total of 12 clusters represented.  
+                        The clear separation into two horizontal lines (-1 and 1) indicates that the data is distributed solely between two genders, meaning the attribute has no intermediate values.  
+                        It is also observed that the cluster colors are mixed within the Interests values, indicating that Interests is not a completely discriminative attribute for separating clusters. This reflects the nature of the data, where different people share similar interests regardless of gender.  
+                        Some clusters occupy broad ranges on the Interests axis, suggesting greater diversity in interests within those groups.
                     </p>
                 </div>
             </div>
@@ -263,48 +255,17 @@
 
         <div class="container mt-5">
             <h4 class="mb-4">Conclusion</h4>
-            <h6>Decision Tree vs. Naive Bayes for Predicting Uruguay's Match Outcomes</h6>
             <p>
-                After incorporating a Decision Tree model alongside the Naive Bayes model, the results showed that the
-                Decision Tree yielded a lower accuracy compared to the Naive Bayes approach. This suggests that, for
-                this particular dataset, Naive Bayes is better at capturing the underlying patterns in the match data of
-                Uruguay.
+                This project has demonstrated how the K-Means algorithm can be used to segment social media users based on their common interests and other key characteristics such as age and gender.  
+                Effective segmentation is crucial for personalizing experiences and optimizing recommendations, which enhances user interaction.  
+                Two metrics, "Avg. within centroid distance" (Elbow Method) and the Davies-Bouldin Index, were used to determine the optimal number of clusters. Both metrics suggested that k = 12 is the ideal value, as it provides segmentation without overfitting the data, despite attributes like "Interests" being polynomial and not entirely discriminative, which can make cluster separation challenging.  
             </p>
-            <h4>Possible Reasons:</h4>
-            <ul>
-                <li><strong>Feature Independence:</strong> Naive Bayes assumes that all features are independent, which,
-                    despite being a strong assumption, can perform well when the assumption holds reasonably true. It
-                    might be more suitable for this dataset if the input features do not have strong interactions.</li>
-                <li><strong>Decision Boundaries:</strong> Decision Trees tend to create hard splits and might struggle
-                    when the decision boundaries between winning, losing, and drawing are not well-defined in the
-                    feature space. This can lead to overfitting in the training set, causing a decrease in performance
-                    on unseen data.</li>
-                <li><strong>Data Distribution:</strong> The nature of football match results (win, draw, lose) may be
-                    better modeled by the probabilistic approach of Naive Bayes, especially given the skewed
-                    distributions in some features like scores.</li>
-            </ul>
-            <h4>Recommendation:</h4>
+            
             <p>
-                While Decision Trees offer interpretability by showing how different features influence outcomes, Naive
-                Bayes seems more effective for this specific problem in terms of accuracy. To further improve model
-                performance, it could be beneficial to try ensemble methods like Random Forests, which combine multiple
-                decision trees and often provide better predictive power.
+                It is important to note that K-Means is sensitive to the selection of k, which can affect the quality of the clusters and tends to produce clusters of uniform size, which may not reflect the actual data distribution.  
+                Nevertheless, these results can be used to recommend content and connections among users with similar interests, improving their experience.  
             </p>
-            <p>
-                Additionally, exploring other classification models such as Support Vector Machines (SVM) or even deep
-                learning techniques could yield better results in predicting match outcomes.
-            </p>
-        </div>
-
-        <div class="container mt-5 mb-3">
-            <h3 class="text-center">Web bibliography</h3>
-            <hr>
-            <p>
-                https://www.tenfield.com.uy/suarez-leyenda/
-            </p>
-        </div>
-    </main>
-
+          
     <div class="text-center text-inverse navbar-inverse">
         <div class="container">
             <div class="row">
