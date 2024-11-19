@@ -120,6 +120,16 @@
                         </div>
                     </ul>
 
+                    <h6>Identification of the Problem Type:</h6>
+                    <p>
+                        In this case, the objective is to group users based on their interests using the Social Media Users dataset. The problem is of the unsupervised learning type: Clustering. 
+                        This is because there are no labels or predefined target variables (e.g., "user group") provided. This means the model needs to identify patterns or groups solely based on the available data. 
+                        Clustering is a technique for uncovering hidden groups or patterns in data, such as common interests in this case.
+                        For this type of problem, the K-Means algorithm can be used because it groups users by minimizing the distances within clusters and maximizing the distances between them. 
+                        This is useful for identifying common patterns among users with similar interests. This algorithm also allows us to experiment with different values of 
+                        k (number of clusters) and select the optimal one to achieve the desired adjustment.
+                    </p>
+
                     <h5>K-Means Model Application</h5>
                     <p>Process created in RapidMiner using the K-Means algorithm to segment social media users based on their common interests.</p>
                     <div class="d-flex justify-content-start align-items-start">
@@ -177,7 +187,6 @@
                         This step generates the final clusters and assigns each record to a cluster.  
                         The optimal number of clusters (k) must be determined based on previous tests. The Euclidean distance is used to measure similarity between points.
                     </p>
-
 
 
                     <h5>Selection of the k Parameter in K-Means</h5>
