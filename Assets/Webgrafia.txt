@@ -32,3 +32,7 @@ UT4
 - https://www.geeksforgeeks.org/naive-bayes-classifiers/
 - https://www.geeksforgeeks.org/k-nearest-neighbours/
 - https://www.geeksforgeeks.org/feature-selection-techniques-in-machine-learning/
+
+UT4_v2
+- https://www.ibm.com/topics/decision-trees
+- https://www.geeksforgeeks.org/support-vector-machine-algorithm/	
