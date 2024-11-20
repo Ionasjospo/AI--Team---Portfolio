@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UT4_V2_TA6_EJ2</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top transparent">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">Team # 2 AI Portfolio</a>
+            </div> <!-- .navbar-header -->
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div> <!-- .navbar-collapse -->
+        </div> <!-- .container -->
+    </nav>
+    
+    <main data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-12">
+                    <div class="intro-paragraph">
+                        <h4>UT4_V2_TA6_EJ2</h4>
+                        <p><strong>Dataset: TA6-EJ2.csv</strong><br>
+                            In this exercise, we used a small dataset with 17 examples, featuring two predictors (X1, X2) and a binary output labeled as Class A or Class B.
+                        </p>
+                        
+                        <p><strong>Process Overview:</strong><br>
+                            The process implemented in RapidMiner involved importing the dataset, assigning roles using the "Set Role" operator, and training an SVM model. We used the "Apply Model" operator to evaluate test data.
+                        </p>
+
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img src="../../../Assets/ut4_v2_images/ut4v2_TA6_EJ3_rapidminer.png" class="img-fluid" style="width: 70%;">
+                        </div>
+
+                        <p><strong>Preparation:</strong><br>
+                            1. Imported the dataset "TA6-EJ2.csv".<br>
+                            2. Used "Set Role" to define the "class" attribute as the prediction target.<br>
+                            3. Created the SVM model and added test points: (1.5, 1), (1.5, 4), and (2, 7).<br>
+                        </p>
+
+                        <p><strong>Kernel Model:</strong><br>
+                            The kernel model parameters provided details about the weights and offset of the SVM. These weights were:<br>
+                            - w[X1] = 0.370<br>
+                            - w[X2] = 1.351<br>
+                            The model used a total of 17 support vectors to define the decision boundary.
+                        </p>
+                        
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img src="../../../Assets/ut4_v2_images/ut4v2_TA6_EJ3_kernel_model.png" class="img-fluid" style="width: 70%;">
+                        </div>
+
+                        <p><strong>Results:</strong><br>
+                            Predictions were made for the test points based on the trained SVM model. The confidence scores indicated the model's certainty for each prediction.<br>
+                        </p>
+                        
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img src="../../../Assets/ut4_v2_images/ut4v2_TA6_EJ3_apply_model.png" class="img-fluid" style="width: 70%;">
+                        </div>
+
+                        <p><strong>Prediction Table:</strong><br>
+                            The model provided the following predictions:<br>
+                            - Point (1.5, 1): Class A, Confidence 87.9%<br>
+                            - Point (1.5, 4): Class B, Confidence 53.4%<br>
+                            - Point (2, 7): Class B, Confidence 92.6%<br>
+                            These results demonstrate how the SVM uses the decision boundary to classify test points.
+                        </p>
+
+                        <p><strong>Conclusion:</strong><br>
+                            The SVM implementation successfully classified new test points with high confidence. The kernel model and support vectors ensured accurate predictions, validating the model's effectiveness for this simple binary classification problem.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center text-inverse navbar-inverse">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4" id="contact">
+                        <h3>Location</h3>
+                        <p>Montevideo, Uruguay</p>
+                    </div> <!-- .footer-col -->
+                    <div class="footer-col col-md-4">
+                        <h3>Connect</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <!-- <a class="medium" href="https://github.com/Ionasjospo" target="newwindow"><span class="fui-github"></span></a> -->
+                            </li>
+                            <li>
+                                <!-- <a class="medium" href="https://www.linkedin.com/in/ionas-josponis/" target="newwindow"><span class="fui-linkedin"></span></a> -->
+                            </li>
+                        </ul>
+                    </div> <!-- .footer-col -->
+                    <div class="footer-col col-md-4">
+                        <h3>Hire Us</h3>
+                        <p>We are available for workshops</p>
+                    </div> <!-- .footer-col -->
+                </div> <!-- .row -->
+            </div> <!-- .container -->
+        </div> <!-- footer -->
+    </main>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-HoRfnjQe6LRgsZAWB7tF0/J9UvcrHJ/tDvkfjTcZ4IM3wb/SuRoGJb7nVLv9ej3M" crossorigin="anonymous"></script>
+</body>
+</html>
