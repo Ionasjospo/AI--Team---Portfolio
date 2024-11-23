@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UT05 - Clustering</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top transparent">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                </button>
+                <a class="navbar-brand" href="../index.html"> Team #2</a>
+            </div> <!-- .navbar-header -->
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div> <!-- .navbar-collapse -->
+        </div> <!-- .container -->
+    </nav>
+    <br>
+    <br>
+    <main data-spy="scroll" data-target=".navbar" data-offset="50">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-center">UT05 - Unsupervised learning techniques and Clustering </h3>
+                    <hr>
+                    <p class="intro-paragraph">
+                        In Unit 5, we explore unsupervised learning techniques, focusing on Clustering and Principal
+                        Component Analysis.
+                        We examine key clustering algorithms, including k-Means, DBSCAN, and Hierarchical Clustering,
+                        discussing their applications, strengths, and limitations.
+                        Additionally, we delve into PCA for dimensionality reduction, highlighting its role in
+                        simplifying data while preserving essential information.
+                        Throughout, we emphasize the importance of data preparation to ensure accurate clustering and
+                        effective use of PCA.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 algorithm-box">
+                    <h3>Clustering</h3>
+                    <!-- https://www.ibm.com/topics/clustering -->
+                    <p class="intro-paragraph">
+                        <b>What is clustering?</b><br>
+                        Clustering is an unsupervised machine learning algorithm that organizes and classifies different
+                        objects, data points, or observations into groups or clusters based on similarities or patterns.
+                        There are a variety of ways to use clustering in machine learning from initial explorations of a
+                        dataset to monitoring ongoing processes.
+                    </p>
+                    <img src="../../Assets/ut5_images/clustering.png" class="img-fluid" style="width: 100%;">
+
+                    <br>
+                    <h3>Types of clustering</h3>
+                    <!-- https://www.ibm.com/topics/clustering -->
+                    <p class="intro-paragraph">
+                        There are many different clustering algorithms as there are multiple ways to define a cluster.
+                        Different approaches will work well for different types of models depending on the size of the
+                        input data, the dimensionality of the data, the rigidity of the categories and the number of
+                        clusters within the dataset
+                    </p>
+                    <p class="intro-paragraph">
+                    <h5>Centroid-based clustering</h5>
+                    Centroid-based clustering groups data points into clusters based on their distance from a
+                    centroid, which is the mean or median of the points in the cluster. The popular k-means
+                    algorithm exemplifies this approach, where the number of clusters (K) is predefined. K-means
+                    iteratively minimizes the total distance between data points and their assigned cluster
+                    centroids using a distance measure, often Euclidean distance. This method is suitable for
+                    clusters of similar size and density but struggles with high-dimensional data, varied cluster
+                    densities, or significant outliers, as it is sensitive to mean-based calculations.
+
+                    An alternative method is K-medoids, which uses actual data points as cluster centers (medoids)
+                    rather than arbitrary centroids.
+                    This makes K-medoids less sensitive to outliers and more robust in scenarios where traditional
+                    centroid calculations might fail.
+                    </p>
+
+                    <p class="intro-paragraph">
+                    <h5>Hierarchical Clustering Summary</h5>
+                    Hierarchical clustering, also known as connectivity-based clustering, organizes data points into
+                    clusters based on their proximity and connectivity across dimensions. This method does not
+                    require pre-specifying the number of clusters, unlike k-means. Instead, it constructs a
+                    hierarchical tree-like graph where nodes represent clusters, and relationships are visualized
+                    with a dendrogram. <br>
+
+                    There are two main approaches to hierarchical clustering:
+
+
+                    <br>
+                    <br>
+                    - <b>Agglomerative (Bottom-Up)</b> This approach starts with individual data points as clusters and
+                    iteratively merges them based on a proximity matrix until one root cluster is formed. Several
+                    linkage methods are used to determine how clusters are merged:
+                    <br>
+                    <br>
+                    -<b>Single-Linkage</b>: Shortest distance between points in two clusters.
+                    All-Pairs Linkage: Average distance across all pairs of points.
+                    Centroid-Linkage: Distance between cluster centroids. However, agglomerative methods may suffer
+                    from issues like chaining (bias toward larger clusters) and slower computational efficiency
+                    compared to divisive methods.
+                    Divisive (Top-Down): This approach begins with all data points in one cluster and recursively
+                    splits them into smaller clusters using flat clustering methods (e.g., k-means). It focuses on
+                    clusters with the largest Sum of Squared Errors (SSE) and stops when nodes meet a minimal SSE or
+                    other criteria. Divisive clustering provides flexibility, allowing imbalanced tree structures
+                    that balance cluster size and hierarchy levels. It is often faster than agglomerative methods,
+                    especially for datasets that don’t require splitting into individual data points.
+                    <br> <br>
+                    Hierarchical clustering is particularly useful for exploring data structure and relationships
+                    without predefined assumptions about the number of clusters.
+                    </p>
+
+                    <p class="intro-paragraph">
+                    <h5>Density-Based Clustering Summary</h5>
+                    Density-based clustering identifies clusters based on areas of high density separated by regions of
+                    low density or sparsity. Unlike centroid-based methods (e.g., K-means) or distribution-based
+                    approaches (e.g., Expectation Maximization), density-based clustering can detect clusters of
+                    arbitrary shape and size. This makes it highly effective for datasets where clusters are not defined
+                    by specific locations or distributions. Additionally, it can distinguish between points that belong
+                    to clusters and those considered noise. Density-based clustering is especially useful for noisy
+                    datasets, datasets with outliers, or when the number of clusters is unknown. <br>
+
+                    There are two key density-based clustering algorithms:
+
+                    <br>
+                    <br>
+                    - <b>DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</b>
+                    This algorithm forms clusters based on a density threshold specified by the user. It defines
+                    neighborhoods around points and categorizes data into three types:
+                    <br>
+                    <br>
+                    - <b>Core Points</b>: Points with neighborhoods containing at least the minimum number of points
+                    specified.
+                    <br>
+                    - <b>Border Points</b>: Points with neighborhoods containing fewer than the minimum points but
+                    connected to a core point.
+                    <br>
+                    - <b>Outliers</b>: Points that are neither core nor border points and are labeled as noise.
+                    <br>
+                    DBSCAN can identify clusters of arbitrary shapes and is well-suited for datasets with noise.
+                    However, it struggles with non-uniform cluster densities.
+                    <br>
+                    <br>
+                    - <b>HDBSCAN (Hierarchical Density-Based Spatial Clustering of Applications with Noise)</b>
+                    HDBSCAN improves upon DBSCAN by eliminating the need for user-defined parameters. It handles varying
+                    cluster densities more effectively and is less sensitive to noise and outliers. This makes it a more
+                    flexible choice for complex datasets.
+                    <br>
+                    <br>
+                    Density-based clustering methods are particularly valuable when clusters have irregular shapes or
+                    densities, or when noise and outliers are present. They offer a robust way to identify meaningful
+                    patterns in such data without prior knowledge of the number of clusters.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 algorithm-box">
+                    <!-- https://www.ibm.com/topics/k-means-clustering -->
+                    <h3>k-Means Algorithm</h3>
+                    <p class="intro-paragraph">
+                        <b>What is k-means?</b><br>
+                        K-means is an unsupervised learning algorithm used for data clustering, which groups unlabeled
+                        data points into groups or clusters. <br>
+                        K-means is an iterative, centroid-based clustering algorithm that partitions a dataset into
+                        similar groups based on the distance between their centroids.
+                        The centroid, or cluster center, is either the mean or median of all the points within the
+                        cluster depending on the characteristics of the data.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 algorithm-box">
+                    <h3>Clustering - DBSCAN</h3>
+                    <p class="intro-paragraph col-xs-8">
+                        <!-- https://www.geeksforgeeks.org/k-nearest-neighbours/ -->
+                        <b>What is the K-Nearest Neighbors Algorithm?</b><br>
+
+                        The K-Nearest Neighbors (KNN) algorithm is a fundamental and widely used supervised learning
+                        algorithm in machine learning, known for its simplicity and effectiveness.
+                        KNN is non-parametric, meaning it makes no assumptions about the data's distribution.
+                        It is often applied in classification and regression tasks, such as pattern recognition, data
+                        mining, and intrusion detection.
+                        The algorithm works by identifying the K closest data points (neighbors) to a given point using
+                        a distance metric, typically Euclidean distance.
+                        The class or value of the new point is determined by the majority vote or average of its
+                        neighbors.
+                        KNN's flexibility allows it to handle both numerical and categorical data while adapting to
+                        local patterns.
+                    </p>
+                    <div class="d-flex justify-content-center align-items-center col-xs-4">
+                        <!-- https://poissonisfish.com/2023/04/11/gradient-descent/ -->
+                        <img src="../../Assets/ut4_images/knn_algorithm.png" class="img-fluid" style="width: 100%;">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 algorithm-box">
+                    <h3>Principal Component Analysis - PCA</h3>
+                    <p class="intro-paragraph">
+                        <!-- https://www.geeksforgeeks.org/feature-selection-techniques-in-machine-learning/ -->
+                        <b>What is Feature selection?</b><br>
+                        Feature selection is the process of selecting a subset of relevant features from the original
+                        set to reduce the feature space while maintaining optimal performance based on a specific
+                        criterion.
+                        It is a critical step in machine learning, particularly in text categorization, where some
+                        features (such as rarely occurring words) may not provide meaningful information.
+                        For instance, if a word like "groovy" appears only once in a positive document, it's uncertain
+                        whether it's genuinely related to the positive class or simply noise.
+                        Removing such features can help simplify the model and improve its ability to generalize.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-2 mb-3">
+            <h3 class="text-center">Take-home exercises</h3>
+            <hr>
+            <ul class="course-outline">
+                <li><a href="ut5_pds/ut5_ta3.html">UT5_TA3</a></li>
+            </ul>
+        </div>
+
+
+        <div class="container mt-5 mb-3">
+            <h3 class="text-center">Web bibliography</h3>
+            <hr>
+            <p>
+                - https://www.ibm.com/topics/clustering <br>
+              
+            </p>
+        </div>
+
+        <div class="text-center text-inverse navbar-inverse">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4" id="contact">
+                        <h3>Location</h3>
+                        <p>Montevideo, Uruguay</p>
+                    </div> <!-- .footer-col -->
+                    <div class="footer-col col-md-4">
+                        <h3>Connect</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a class="medium" href="https://github.com/Ionasjospo" target="newwindow"><span
+                                        class="fui-github"></span></a>
+                            </li>
+                            <li>
+                                <a class="medium" href="https://www.linkedin.com/in/ionas-josponis/"
+                                    target="newwindow"><span class="fui-linkedin"></span></a>
+                            </li>
+                        </ul>
+                    </div> <!-- .footer-col -->
+                    <div class="footer-col col-md-4">
+                        <h3>Hire Us</h3>
+                        <p>We are available for workshops</p>
+                    </div> <!-- .footer-col -->
+                </div> <!-- .row -->
+            </div> <!-- .container -->
+        </div> <!--  -->
+        </div>
+    </main>
+</body>
+
+</html>
+
+
+
+
+<!-- https://codepen.io/eddyerburgh/pen/oxwXjx -->
