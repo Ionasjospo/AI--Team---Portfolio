@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UT07 - Model Tuning, Evaluation, and Optimization</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top transparent">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                </button>
+                <a class="navbar-brand" href="../index.html"> Team #2</a>
+            </div> <!-- .navbar-header -->
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div> <!-- .navbar-collapse -->
+        </div> <!-- .container -->
+    </nav>
+    <br>
+    <br>
+    <main data-spy="scroll" data-target=".navbar" data-offset="50">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-center">Model Tuning, Evaluation, and Optimization</h3>
+                    <hr>
+                    <p class="intro-paragraph">
+                        In this unit, we delve into essential concepts of data preparation and model evaluation in
+                        machine learning.
+                        We explore techniques for transforming individual and multiple predictors, addressing missing
+                        values, and refining features through elimination or binning.
+                        For model evaluation, methods like confusion matrices, ROC curves, AUC, and Lift Curves are
+                        covered, emphasizing avoiding accidental contamination.
+                        Lastly, we focus on overfitting prevention, model tuning, data splitting, and re-sampling to
+                        optimize machine learning models for robust performance.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 algorithm-box">
+                    <h3>Model tuning</h3>
+                    <p class="intro-paragraph">
+                        <!-- https://www.iguazio.com/glossary/model-tuning/ -->
+                        <b>What Is Model Tuning?</b><br>
+                        Model tuning involves adjusting hyperparameters, the external values set by users, to optimize a
+                        machine learning model's learning process.
+                        Unlike trainable parameters, which are learned from data during training, hyperparameters
+                        control the model's structure and training behavior (e.g., learning rate, number of layers).
+                        Each algorithm has its unique hyperparameters, and tuning focuses on key ones for efficiency.
+                        Hyperparameters can also include data preprocessing choices like feature selection or
+                        transformations, impacting overall performance.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 algorithm-box">
+                    <h3>ML Model Evaluation</h3>
+                    <p class="intro-paragraph">
+                        <!-- https://www.geeksforgeeks.org/k-nearest-neighbours/ -->
+                        <b>What is model evaluation?</b><br>
+                        Model evaluation assesses a model's performance using metrics like Accuracy, Precision, Recall,
+                        F1 Score, Area Under Curve (AUC), Confusion Matrix, and Mean Squared Error.
+                        It is essential to judge how well the model generalizes to future predictions and identify
+                        weaknesses.
+                        Cross-validation is a common technique for evaluating models during training.
+                        <br> <br>
+                        <b>Cross Validation:</b>
+                        Cross-validation reserves part of the dataset for testing. In K-Fold Cross Validation, the
+                        dataset is divided into k subsets (folds), with each fold alternately used for testing while the
+                        remaining folds train the model.
+                        This ensures every data point is both a training and testing subject, enhancing generalization
+                        and reducing errors.
+                        <br><br>
+                        <b>Holdout:</b>
+                        Holdout splits the dataset into separate training and testing sets, typically in ratios like
+                        70:30 or 80:20.
+                        It is simple and widely used for neural networks and classifiers, allocating most data for
+                        training while testing on a smaller portion.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-2 mb-3">
+            <h3 class="text-center">Take-home exercises</h3>
+            <hr>
+            <ul class="course-outline">
+                <li><a href="ut4_pds/ut4_ta5.html">UT7 ...</a></li>
+                <li><a href="ut4_pds/ut4_ta10.html">UT7 ...</a></li>
+            </ul>
+        </div>
+
+
+        <div class="container mt-5 mb-3">
+            <h3 class="text-center">Web bibliography</h3>
+            <hr>
+            <p>
+                - https://www.iguazio.com/glossary/model-tuning/ <br>
+                - https://www.geeksforgeeks.org/machine-learning-model-evaluation/ <br>
+
+            </p>
+        </div>
+
+        <div class="text-center text-inverse navbar-inverse">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4" id="contact">
+                        <h3>Location</h3>
+                        <p>Montevideo, Uruguay</p>
+                    </div> <!-- .footer-col -->
+                    <div class="footer-col col-md-4">
+                        <h3>Connect</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <!-- <a class="medium" href="https://github.com/Ionasjospo" target="newwindow"><span class="fui-github"></span></a> -->
+                            </li>
+                            <li>
+                                <!-- <a class="medium" href="https://www.linkedin.com/in/ionas-josponis/" target="newwindow"><span class="fui-linkedin"></span></a> -->
+                            </li>
+                        </ul>
+                    </div> <!-- .footer-col -->
+                    <div class="footer-col col-md-4">
+                        <h3>Hire Us</h3>
+                        <p>We are available for workshops</p>
+                    </div> <!-- .footer-col -->
+                </div> <!-- .row -->
+            </div> <!-- .container -->
+        </div> <!--  -->
+        </div>
+    </main>
+</body>
+
+</html>
+
+
+
+
+<!-- https://codepen.io/eddyerburgh/pen/oxwXjx -->
