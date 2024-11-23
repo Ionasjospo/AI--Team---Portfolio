@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UT06 - Ensemble Methods</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top transparent">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                </button>
+                <a class="navbar-brand" href="../index.html"> Team #2</a>
+            </div> <!-- .navbar-header -->
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div> <!-- .navbar-collapse -->
+        </div> <!-- .container -->
+    </nav>
+    <br>
+    <br>
+    <main data-spy="scroll" data-target=".navbar" data-offset="50">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-center">Ensemble Methods</h3>
+                    <hr>
+                    <p class="intro-paragraph">
+                        In this unit, we delve into advanced ensemble learning techniques to improve machine learning
+                        model performance.
+                        We explore <b>Bootstrap Aggregation (Bagging)</b>, focusing on how it reduces variance by
+                        combining predictions from multiple models trained on resampled datasets.
+                        The <b>Random Forest</b> algorithm is highlighted as a powerful extension of bagging,
+                        introducing random feature selection to enhance robustness and accuracy.
+                        Additionally, we study <b>Boosting</b> methods, which sequentially train models to correct
+                        errors from previous ones, with a particular emphasis on <b>AdaBoost</b>.
+                        These techniques showcase the potential of ensemble methods to improve prediction accuracy and
+                        model generalization across diverse datasets.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 algorithm-box">
+                    <h3>Bootstrap Aggregation (Bagging)</h3>
+                    <p class="intro-paragraph">
+                        <!-- https://www.ibm.com/topics/ensemble-learning -->
+                        <b>What is Bagging?</b><br>
+                        In <a href="https://www.ibm.com/topics/bagging">bagging</a>, a random sample of data in a
+                        training set is selected with replacement—meaning that
+                        the individual data points can be chosen more than once.
+                        After generating several data samples, these weak models are then trained independently.
+                        Depending on the type of task—regression or classification, for example—the average or majority
+                        of those predictions yield a more accurate estimate.
+                    </p>
+                    <img src="../../Assets/ut6_images/bagging.png" class="img-fluid" style="width: 100%;">
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 algorithm-box">
+                    <h3>Boosting</h3>
+                    <p class="intro-paragraph">
+                        <!-- https://www.geeksforgeeks.org/k-nearest-neighbours/ -->
+                        <b>What is Boosting?</b><br>
+
+                        <a href="https://www.ibm.com/topics/boosting">Boosting</a> algorithms are a sequential ensemble
+                        method. Boosting has many variations, but they all follow the same general procedure.
+                        Boosting trains a learner on some initial dataset, d. The resultant learner is typically weak,
+                        misclassifying many samples in the dataset.
+                        Much like bagging, boosting then samples instances from the initial dataset to create a new
+                        dataset (d2).
+                        Unlike bagging, however, boosting prioritizes misclassified data instances from the first model
+                        or learner.
+                        A new learner is trained on this new dataset d2. Then a third dataset (d3) is then compiled from
+                        d1 and d2, prioritizes the second learner’s misclassified samples and instances in which d1 and
+                        d2 disagree.
+                        The process repeats n times to produce n learners.
+                        Boosting then combines and weights the all the learners together to produce final predictions
+                    </p>
+
+                    <img src="../../Assets/ut6_images/boosting.png" class="img-fluid" style="width: 100%;">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 algorithm-box">
+                    <h3>Random forest</h3>
+                    <p class="intro-paragraph">
+                        <!-- https://www.ibm.com/topics/random-forest#:~:text=Random%20forest%20is%20a%20commonly,Decision%20trees -->
+                        <b>What is Random forest?</b><br>
+                        Random Forest is a machine learning algorithm combining multiple decision trees to improve
+                        accuracy and reduce overfitting.
+                        It uses bagging and feature randomness, selecting subsets of features to ensure low correlation
+                        among trees.
+                        This creates a diverse ensemble for classification (majority vote) or regression (averaging).
+                        Key hyperparameters include node size, number of trees, and features sampled.
+                        Random Forest handles bias, variance, and overfitting effectively, ensuring robust predictions.
+                    </p>
+                    <img src="../../Assets/ut6_images/random_forest.png" class="img-fluid" style="width: 100%;">
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 algorithm-box">
+                    <h3>AdaBoost</h3>
+                    <p class="intro-paragraph">
+                        <!-- https://www.geeksforgeeks.org/implementing-the-adaboost-algorithm-from-scratch/ -->
+                        <b>What is Random forest?</b><br>
+                        AdaBoost short for Adaptive Boosting is an ensemble learning used in machine learning for classification and regression problems. 
+                        The main idea behind AdaBoost is to iteratively train the weak classifier on the training dataset with each successive classifier giving more weightage to the data points that are misclassified. 
+                        The final AdaBoost model is decided by combining all the weak classifier that has been used for training with the weightage given to the models according to their accuracies. 
+                        The weak model which has the highest accuracy is given the highest weightage while the model which has the lowest accuracy is given a lower weightage. 
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-2 mb-3">
+            <h3 class="text-center">Take-home exercises</h3>
+            <hr>
+            <ul class="course-outline">
+                <li><a href="ut4_pds/ut4_ta5.html">UT6 ...</a></li>
+                <li><a href="ut4_pds/ut4_ta10.html">UT6 ...</a></li>
+            </ul>
+        </div>
+
+
+        <div class="container mt-5 mb-3">
+            <h3 class="text-center">Web bibliography</h3>
+            <hr>
+            <p>
+                - https://www.ibm.com/topics/bagging <br>
+                - https://www.ibm.com/topics/ensemble-learning <br>
+                - https://www.ibm.com/topics/bagging <br>
+                - https://www.ibm.com/topics/random-forest#:~:text=Random%20forest%20is%20a%20commonly,Decision%20trees <br>
+                - https://www.geeksforgeeks.org/implementing-the-adaboost-algorithm-from-scratch/
+            </p>
+        </div>
+
+        <div class="text-center text-inverse navbar-inverse">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4" id="contact">
+                        <h3>Location</h3>
+                        <p>Montevideo, Uruguay</p>
+                    </div> <!-- .footer-col -->
+                    <div class="footer-col col-md-4">
+                        <h3>Connect</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <!-- <a class="medium" href="https://github.com/Ionasjospo" target="newwindow"><span class="fui-github"></span></a> -->
+                            </li>
+                            <li>
+                                <!-- <a class="medium" href="https://www.linkedin.com/in/ionas-josponis/" target="newwindow"><span class="fui-linkedin"></span></a> -->
+                            </li>
+                        </ul>
+                    </div> <!-- .footer-col -->
+                    <div class="footer-col col-md-4">
+                        <h3>Hire Us</h3>
+                        <p>We are available for workshops</p>
+                    </div> <!-- .footer-col -->
+                </div> <!-- .row -->
+            </div> <!-- .container -->
+        </div> <!--  -->
+        </div>
+    </main>
+</body>
+
+</html>
+
+
+
+
+<!-- https://codepen.io/eddyerburgh/pen/oxwXjx -->
