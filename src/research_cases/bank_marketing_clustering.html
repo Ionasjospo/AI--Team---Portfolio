@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bank Marketing Campaign Analysis with Random Forest</title>
+        <title>Bank Marketing Campaign Analysis with Clustering</title>
         <link rel="stylesheet" href="../../styles.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -34,21 +34,21 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-md-12">
-                    <h4 style="text-align: center;">Bank Marketing Campaign Analysis with Random Forest</h4>
+                    <h4 style="text-align: center;">Bank Marketing Campaign Analysis with Clustering</h4>
                     <div class="d-flex justify-content-center align-items-center">
                     </div>
                     <br>
                     <p><strong>Introduction</strong><br>
                         Based on the Kaggle dataset available in <a
                             href="https://www.kaggle.com/datasets/thedevastator/predicting-portuguese-bank-term-deposit-subscrip"
-                            target="_blank">Predicting-Portuguese-Bank-Term Deposit</a>. This case study analyzes data from a Portuguese banking institution's direct marketing campaigns. 
-                            The goal is to predict whether a client will subscribe to a term deposit based on various attributes 
-                            such as demographic and campaign data.
+                            target="_blank">Predicting-Portuguese-Bank-Term Deposit</a>, this case study focuses on applying clustering techniques to analyze data from a Portuguese banking institution's direct marketing campaigns. 
+                        The goal is to segment clients into distinct groups based on various attributes such as demographic information and campaign data. 
+                        By clustering the customers, we aim to identify patterns and insights that can help improve marketing strategies and better understand customer behavior.
                     </p>
                     <p><strong>Objective</strong><br>
-                        The objective of this study is to build a classification model that predicts whether a client will subscribe (or not) to a term deposit, 
-                        based on the information provided during the campaign calls. The target variable, y, indicates whether the client accepted (value 'yes') 
-                        or declined (value 'no') the deposit.
+                        The objective of this study is to apply clustering techniques to segment clients into distinct groups based on attributes such as demographic information and campaign data. 
+                        The aim is to identify patterns within the data that can help understand customer behavior and tailor marketing strategies more effectively. 
+                        By clustering the clients, we seek to uncover hidden structures in the dataset, allowing for better targeting of future campaigns.
                     </p>
                     <br>
                     <h5>Development</h5>
@@ -166,13 +166,6 @@
                         <div class="d-flex justify-content-start align-items-start">
                             <img src="../../Assets/research_images/bank_marketing/poutcome.png" class="img-fluid" style="width: 80%;">
                         </div>
-                        
-                        <li><strong>Subscription Status:</strong> The target variable, which indicates if the client subscribed to a term deposit.<br>
-                            The 'y' feature is binary, where 'yes' indicates that the client subscribed to a term deposit and 'no' indicates that they did not. This is the key target variable of the dataset.
-                        </li>
-                        <div class="d-flex justify-content-start align-items-start">
-                            <img src="../../Assets/research_images/bank_marketing/y.png" class="img-fluid" style="width: 80%;">
-                        </div>
 
                         <li><strong>Correlations:</strong> In the attribute analysis, a correlation matrix was created to identify highly correlated features. Features with a correlation weight higher than 0.95 were removed to prevent multicollinearity, which can negatively affect the model's performance. The correlation matrix was created using RapidMiner's 'Correlation Matrix' operator with the 'Normalize Weights' option enabled, and the 'Squared Correlation' method for calculating correlations. Based on the results, it was decided to remove the following features: 'duration', 'default', and 'loan', as they showed high correlations with other features, which could lead to overfitting and poor model performance.<br>
                             Below is the generated correlation matrix:
@@ -195,110 +188,176 @@
                             <img src="../../Assets/research_images/bank_marketing/missing_values_removal.png" class="img-fluid" style="width: 50%;">
                         </div>
                         <br>
-                        <h5>Random Forest Model Application</h5>
-                        <p>Process created using the Random Forest algorithm to classify and predict outcomes based on a set of features.</p>
-                      
+                        <h5>Clustering Analysis with K-means</h5>
+                        <p>Process created using clustering techniques, specifically K-means, to segment clients into distinct groups based on their attributes.</p>
+                        
                         <p>1. Data Cleaning:  
-                            The first step involves cleaning the dataset. This cleaning is based on the feature study above, where columns with many missing values, such as 'poutcome' and 'contact', are removed. Additionally, special identifier columns like 'ID' are dropped. Missing values in categorical columns such as 'job' and 'education' are imputed using the mode (most frequent value). 
+                            The first step involves cleaning the dataset. Columns with many missing values, such as 'poutcome' and 'contact', are removed, along with special identifier columns like 'ID'. Missing values in categorical columns such as 'job' and 'education' are imputed using the mode (most frequent value). In addition, outliers are detected and removed using K-means clustering. Data points that deviate significantly from the cluster centroids are considered outliers and excluded from the analysis to improve clustering accuracy and avoid distortion.
                         </p>
-
+                        
                         <div class="d-flex justify-content-start align-items-start" style="margin-top: 20px;">
-                            <img src="../../Assets/research_images/bank_marketing/dataCleaningProcess.png" class="img-fluid" style="width: 50%;">
+                            <img src="../../Assets/research_images/bank_marketing/dataCleaningClustering.png" class="img-fluid" style="width: 50%;">
                         </div>
                         <br>
+                        <div class="d-flex justify-content-start align-items-start" style="margin-top: 20px;">
+                            <img src="../../Assets/research_images/bank_marketing/dataCleaningClustering1.png" class="img-fluid" style="width: 50%;">
+                        </div>
+                        <br>
+                        
 
                         <p>2. Data Preprocessing:  
-                            Categorical variables are encoded into numerical values using Label Encoding. This allows the Random Forest model to work with them since it can only handle numerical data. The target variable 'y' is also converted into binary numeric values, with 'yes' mapped to 1 and 'no' mapped to 0.
+                            Categorical variables are encoded into numerical values using Label Encoding. This allows the K-means clustering algorithm to work with them, as it requires numerical data. Additionally, the features are normalized using Min-Max Scaling to bring them to a common scale, ensuring that variables with larger ranges do not dominate the clustering process. This step is crucial for the algorithm's performance, as K-means is sensitive to the scale of the data. The target variable is not used in clustering, as clustering does not require a target variable.
                         </p>
                         <div class="d-flex justify-content-start align-items-start" style="margin-top: 20px;">
-                            <img src="../../Assets/research_images/bank_marketing/dataPreProcess.png" class="img-fluid" style="width: 50%;">
+                            <img src="../../Assets/research_images/bank_marketing/dataPreProcessClustering.png" class="img-fluid" style="width: 50%;">
                         </div>
                         <br>
-
-                        <p>3. Model Training and Evaluation:  
-                            The model was initially trained using 100 estimators (trees). After observing the results, the model was retrained with 1,000 estimators to evaluate whether a higher number of trees would improve performance. However, with 1,000 trees, there were no significant improvements in accuracy compared to the model trained with 100 trees. The cost of computation increased substantially, making it less efficient for this problem.
-                        </p>
-
-                        <p>4. Cross-validation:  
-                            The dataset was split into 10 parts (folds), and in each fold, the model was trained on 9 folds and tested on the remaining fold. This process ensures that each data point is used for both training and testing, helping to avoid overfitting and assess the model's generalization ability. Accuracy and confusion matrices are calculated for each fold to measure the model's performance.
+                        
+                        <p>3. K-means Model Training and Evaluation:  
+                            The K-means clustering algorithm was applied to partition the data into clusters. Initially, different values for the number of clusters were tested, and the <strong>Elbow Method</strong> was used to identify the optimal number of clusters. This method involves plotting the inertia (sum of squared distances from each point to its assigned centroid) against the number of clusters. The "elbow" point, where the inertia starts decreasing at a slower rate, indicates the best number of clusters. In this case, the optimal number of clusters identified by the Elbow Method was 4.
                         </p>
                         <div class="d-flex justify-content-start align-items-start" style="margin-top: 20px;">
-                            <img src="../../Assets/research_images/bank_marketing/rf_training_1000.png" class="img-fluid" style="width: 50%;">
+                            <img src="../../Assets/research_images/bank_marketing/numberClusters.png" class="img-fluid" style="width: 50%;">
                         </div>
                         <br>
-
-                        <p>5. Accuracy and Confusion Matrix:  
-                            After the cross-validation process, the average accuracy of the model across all folds was calculated. The confusion matrix was also averaged across folds to assess the model's classification performance, showing how many true positives, true negatives, false positives, and false negatives were predicted.
+                        <div class="d-flex justify-content-start align-items-start" style="margin-top: 20px;">
+                            <img src="../../Assets/research_images/bank_marketing/numberClustersGraph.png" class="img-fluid" style="width: 50%;">
+                        </div>
+                        <br>
+                        
+                        <p>4. Model Evaluation and Cluster Stability:  
+                            After determining the optimal number of clusters, the stability of the clusters was evaluated by running the K-means algorithm multiple times with different initializations. This process ensures that the model does not converge to local minima, and the cluster results remain consistent. We used the <strong>Silhouette Score</strong> to assess the quality of the clusters, which measures the cohesion and separation of the clusters. A higher Silhouette Score indicates better-defined clusters.
                         </p>
                         <div class="d-flex justify-content-start align-items-start" style="margin-top: 20px;">
-                            <img src="../../Assets/research_images/bank_marketing/rf_accuracy_cf.png" class="img-fluid" style="width: 50%;">
+                            <img src="../../Assets/research_images/bank_marketing/cluster3.png" class="img-fluid" style="width: 30%;" alt="Clusters with k=3">
+                            <img src="../../Assets/research_images/bank_marketing/cluster4.png" class="img-fluid" style="width: 30%;" alt="Clusters with k=4">
+                            <img src="../../Assets/research_images/bank_marketing/cluster5.png" class="img-fluid" style="width: 30%;" alt="Clusters with k=5">
                         </div>
-                        <br>
-                        <p>6. Feature Importance:  
-                            Random Forest models provide insights into the importance of each feature in making predictions. The feature importances are ranked, showing which attributes have the greatest impact on the model’s decisions.
+                        <br>                        
+                        
+                        <p>5. Evaluation Metrics:  
+                            To evaluate the clustering performance, the <strong>Silhouette Score</strong> was calculated. This metric measures the cohesion and separation of the clusters, helping assess the overall quality and appropriateness of the chosen number of clusters. A higher value indicates better-defined and well-separated clusters.
                         </p>
                         <div class="d-flex justify-content-start align-items-start" style="margin-top: 20px;">
-                            <img src="../../Assets/research_images/bank_marketing/rf_fi.png" class="img-fluid" style="width: 50%;">
+                            <img src="../../Assets/research_images/bank_marketing/evaluateCluster.png" class="img-fluid" style="width: 50%;">
                         </div>
                         <br>
-
-                        <h5>Results of the Model</h5>
-                        <p>The cross-validation process resulted in an <strong>average accuracy of 88.54%</strong>, demonstrating the model’s strong performance in predicting the target variable. However, the confusion matrix analysis revealed some misclassifications, particularly in recognizing positive cases.</p>
-
+                        <p>
+                            By comparing the Silhouette Scores for different values of <strong>k</strong> (3, 4, and 5), and considering the visualizations, we can confirm the results from the Elbow Method. As we observed earlier, <strong>k = 4</strong> provided the best balance between cluster cohesion and separation, making it the optimal choice for this dataset.
+                        </p>
+                        
                         <div class="d-flex justify-content-start align-items-start" style="margin-top: 20px;">
-                            <img src="../../Assets/research_images/bank_marketing/accuracy_100.png" class="img-fluid" style="width: 40%;">
+                            <img src="../../Assets/research_images/bank_marketing/silhouette_score_k3.png" class="img-fluid" style="width: 30%; margin-right: 10px;" alt="Silhouette Score for k=3">
+                            <img src="../../Assets/research_images/bank_marketing/silhouette_score_k4.png" class="img-fluid" style="width: 30%; margin-right: 10px;" alt="Silhouette Score for k=4">
+                            <img src="../../Assets/research_images/bank_marketing/silhouette_score_k5.png" class="img-fluid" style="width: 30%;" alt="Silhouette Score for k=5">
                         </div>
                         <br>
-
-                        <h5>Feature Importance</h5>
-                        <p>The following table shows the feature importances as determined by the Random Forest model, sorted by their contribution to the classification task.</p>
-
+                        
+                        <p>6. Cluster Analysis:  
+                            After obtaining the final clusters, the centroids of each cluster were analyzed to understand the characteristics of the groups. The distribution of features within each cluster provided insights into different customer segments, which can be useful for marketing strategy development and customer targeting.
+                        </p>
+                        
+                        <!-- Tabla de centroides -->
+                        <p>Below is the table with the centroids of each cluster:</p>
+                        <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
+                            <thead>
+                                <tr>
+                                    <th style="border: 1px solid black;">age</th>
+                                    <th style="border: 1px solid black;">job</th>
+                                    <th style="border: 1px solid black;">marital</th>
+                                    <th style="border: 1px solid black;">education</th>
+                                    <th style="border: 1px solid black;">balance</th>
+                                    <th style="border: 1px solid black;">housing</th>
+                                    <th style="border: 1px solid black;">day_of_week</th>
+                                    <th style="border: 1px solid black;">month</th>
+                                    <th style="border: 1px solid black;">campaign</th>
+                                    <th style="border: 1px solid black;">pdays</th>
+                                    <th style="border: 1px solid black;">previous</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="border: 1px solid black;">32.51696</td>
+                                    <td style="border: 1px solid black;">retired</td>
+                                    <td style="border: 1px solid black;">married</td>
+                                    <td style="border: 1px solid black;">secondary</td>
+                                    <td style="border: 1px solid black;">1065.81</td>
+                                    <td style="border: 1px solid black;">no</td>
+                                    <td style="border: 1px solid black;">16.0552</td>
+                                    <td style="border: 1px solid black;">jan</td>
+                                    <td style="border: 1px solid black;">2.42727</td>
+                                    <td style="border: 1px solid black;">10.1768</td>
+                                    <td style="border: 1px solid black;">0.21082</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid black;">40.53591</td>
+                                    <td style="border: 1px solid black;">housemaid</td>
+                                    <td style="border: 1px solid black;">divorced</td>
+                                    <td style="border: 1px solid black;">primary</td>
+                                    <td style="border: 1px solid black;">948.1697</td>
+                                    <td style="border: 1px solid black;">no</td>
+                                    <td style="border: 1px solid black;">15.9245</td>
+                                    <td style="border: 1px solid black;">jun</td>
+                                    <td style="border: 1px solid black;">2.44948</td>
+                                    <td style="border: 1px solid black;">1.48107</td>
+                                    <td style="border: 1px solid black;">0.04837</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid black;">49.37008</td>
+                                    <td style="border: 1px solid black;">management</td>
+                                    <td style="border: 1px solid black;">divorced</td>
+                                    <td style="border: 1px solid black;">secondary</td>
+                                    <td style="border: 1px solid black;">1258.1161</td>
+                                    <td style="border: 1px solid black;">no</td>
+                                    <td style="border: 1px solid black;">16.0008</td>
+                                    <td style="border: 1px solid black;">jan</td>
+                                    <td style="border: 1px solid black;">2.66018</td>
+                                    <td style="border: 1px solid black;">9.33737</td>
+                                    <td style="border: 1px solid black;">0.18215</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid black;">39.35579</td>
+                                    <td style="border: 1px solid black;">housemaid</td>
+                                    <td style="border: 1px solid black;">married</td>
+                                    <td style="border: 1px solid black;">secondary</td>
+                                    <td style="border: 1px solid black;">1079.4271</td>
+                                    <td style="border: 1px solid black;">no</td>
+                                    <td style="border: 1px solid black;">13.3825</td>
+                                    <td style="border: 1px solid black;">jul</td>
+                                    <td style="border: 1px solid black;">2.07937</td>
+                                    <td style="border: 1px solid black;">272.1568</td>
+                                    <td style="border: 1px solid black;">2.78664</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- Espacio entre la tabla y las imágenes -->
+                        <br>
+                        
+                        <p>In addition, the PCA visualization of the clusters in a 2D space reveals how the different customer groups are distributed and their relationship with the centroid positions.</p>
+                        
                         <div class="d-flex justify-content-start align-items-start" style="margin-top: 20px;">
-                            <img src="../../Assets/research_images/bank_marketing/feature_importance_100.png" class="img-fluid" style="width: 30%;">
+                            <img src="../../Assets/research_images/bank_marketing/cluster4.png" class="img-fluid" style="width: 50%;" alt="Cluster Visualization">
                         </div>
                         <br>
-
-                        <h5>Experimenting with the Number of Estimators</h5>
-                        <p>The performance of the Random Forest model was further evaluated by comparing the results with 100 estimators versus 1000 estimators. The increase in estimators showed some improvement in model stability, but the accuracy did not improve significantly. However, the computational cost increased drastically when using 1000 estimators, which made it less efficient for this particular task.</p>
-
-                        <div class="d-flex justify-content-between align-items-start" style="margin-top: 20px;">
-                            <div class="d-flex justify-content-center" style="width: 45%;">
-                                <h6>100 Estimators</h6>
-                                <img src="../../Assets/research_images/bank_marketing/accuracy_100.png" class="img-fluid" style="width: 100%;">
-                            </div>
-                            <div class="d-flex justify-content-center" style="width: 45%;">
-                                <h6>1000 Estimators</h6>
-                                <img src="../../Assets/research_images/bank_marketing/accuracy_1000.png" class="img-fluid" style="width: 100%;">
-                            </div>
+                        
+                        
+                        <h5>Clustering Results and Evaluation</h5>
+                        <p>The clustering analysis revealed challenges in the definition of the clusters. The <strong>Siluette Score</strong>, used to evaluate cluster separation, was lower than expected, indicating that the clusters might overlap. Visual inspections of the cluster plots also revealed poor separation and indistinct boundaries.</p>
+                        <div class="d-flex justify-content-start align-items-start" style="margin-top: 20px;">
+                            <img src="../../Assets/research_images/bank_marketing/resultsClustering4.png" class="img-fluid" style="width: 50%;" alt="Cluster Visualization">
                         </div>
                         <br>
+                        
                         <h5>Conclusion</h5>
-                        <p>
-                            The Random Forest model demonstrated solid performance with an average accuracy of 88.54% across 10-fold cross-validation. 
-                            The average confusion matrix confirmed the model's effectiveness in distinguishing between the target classes; however, 
-                            it also revealed a notable number of false negatives. This suggests that the model struggles to correctly identify the 
-                            positive class, which may be attributed to a significant class imbalance in the dataset.
-                        </p>
-
-                        <p>
-                            The feature importance analysis revealed that variables such as <strong>balance</strong> (22.43%), <strong>age</strong> (17.55%), 
-                            and <strong>day_of_week</strong> (14.62%) were the most influential in predicting the outcome. These results validate the 
-                            significance of these attributes in the context of the problem and suggest opportunities for further optimization by 
-                            focusing on these key features.
-                        </p>
-
-                        <p>
-                            Increasing the number of estimators from 100 to 1000 did not lead to significant improvements in accuracy, emphasizing 
-                            that added complexity does not always yield better performance. Moreover, the computational cost of using 1000 estimators 
-                            was substantially higher, underlining the importance of balancing accuracy with efficiency in practical implementations.
-                        </p>
-
-                        <p>
-                            In conclusion, the model achieves a good balance between accuracy and generalization, providing reliable predictions for 
-                            the analyzed dataset. However, the presence of many false negatives highlights the need for strategies to address the 
-                            class imbalance, such as resampling techniques or adjusted classification thresholds. These adjustments could enhance 
-                            the model's ability to identify the positive class, improving its overall performance and applicability.
-                        </p>
+                        <p>The analysis of clustering results highlighted key limitations of the K-Means algorithm for this dataset. K-Means works under the assumption that clusters are spherical and of similar size, but the low <strong>Siluette Score</strong> and poor separation of clusters suggest this assumption did not hold in this case. Many data points seemed to belong to more than one cluster, reflecting weak cohesion and separation.</p>
+                        
+                        <p>These issues indicate that K-Means might not be well-suited for datasets with complex cluster structures, especially when clusters vary in shape or density. In such cases, K-Means often leads to overlapping clusters, which diminishes the overall quality of the segmentation.</p>
+                        
+                        <p>To address these challenges, alternative clustering techniques like <strong>DBSCAN</strong> and <strong>Hierarchical Clustering</strong> should be considered. DBSCAN is particularly useful for datasets with irregularly shaped clusters and varying densities, while Hierarchical Clustering offers the advantage of flexibility, allowing the user to choose the number of clusters at different levels of the hierarchy based on a dendrogram.</p>
+                        
+                        <p>Additionally, techniques such as dimensionality reduction (e.g., PCA) can improve clustering performance, particularly when working with high-dimensional data. By reducing the number of features, these methods can help uncover clearer cluster structures and enhance the accuracy of the clustering results.</p>
+                        
+                        <p>In conclusion, the clustering results suggest that K-Means is not the most effective approach for this dataset. Exploring algorithms like DBSCAN or Hierarchical Clustering, and utilizing dimensionality reduction techniques, could provide more accurate and meaningful clusters, offering better insights and improved decision-making capabilities.</p>
 
                     </div>
                 </div>
