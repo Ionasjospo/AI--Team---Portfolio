@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Uruguay Results</title>
+        <link rel="stylesheet" href="../../styles.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    </head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top transparent">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">Team # 2 AI Portfolio</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-12">
+                    <h4 style="text-align: center;">Bank Marketing Campaign Analysis</h4>
+                    <div class="d-flex justify-content-center align-items-center">
+                    </div>
+                    <br>
+                    <p><strong>Introduction</strong><br>
+                        Based on the Kaggle dataset available in <a
+                            href="https://www.kaggle.com/datasets/thedevastator/predicting-portuguese-bank-term-deposit-subscrip"
+                            target="_blank">Predicting-Portuguese-Bank-Term Deposit</a>. This case study analyzes data from a Portuguese banking institution's direct marketing campaigns. 
+                            The goal is to predict whether a client will subscribe to a term deposit based on various attributes 
+                            such as demographic and campaign data.
+                    </p>
+                    <p><strong>Objective</strong><br>
+                        The objective of this study is to build a classification model that predicts whether a client will subscribe (or not) to a term deposit, 
+                        based on the information provided during the campaign calls. The target variable, y, indicates whether the client accepted (value 'yes') 
+                        or declined (value 'no') the deposit.
+                    </p>
+                    <br>
+                    <h5>Development</h5>
+                    <h6>Analysis of attributes and their distributions:</h6>
+                    <ul>
+                    
+                        <li><strong>Age:</strong> Represents the user's age.<br>
+                            The 'Age' feature is an integer value representing the age of the customer. It is a numeric attribute with no missing values.
+                        </li>
+                        <div class="d-flex justify-content-start align-items-start">
+                            <img src="../../Assets/research_images/bank_marketing/age.png" class="img-fluid" style="width: 80%;">
+                        </div>
+                        
+                        <li><strong>Job:</strong> Represents the user's occupation.<br>
+                            The 'Job' feature is categorical, containing various occupation types such as 'admin.', 'blue-collar', 'entrepreneur', 'housemaid', 'management', 'retired', 'self-employed', 'services', 'student', 'technician', 'unemployed', 'unknown'. The distribution of jobs is varied across the dataset. Missing values are present in this feature.
+                        </li>
+                        <div class="d-flex justify-content-start align-items-start">
+                            <img src="../../Assets/research_images/bank_marketing/job.png" class="img-fluid" style="width: 80%;">
+                        </div>
+                        
+                        <li><strong>Marital Status:</strong> Represents the marital status of the user.<br>
+                            The 'Marital Status' feature is categorical, with values such as 'divorced', 'married', 'single', and 'unknown'. This attribute describes the user's marital situation.
+                        </li>
+                        <div class="d-flex justify-content-start align-items-start">
+                            <img src="../../Assets/research_images/bank_marketing/marital.png" class="img-fluid" style="width: 80%;">
+                        </div>
+                        
+                        <li><strong>Education Level:</strong> Represents the user's level of education.<br>
+                            The 'Education' feature is categorical, with values like 'basic.4y', 'basic.6y', 'basic.9y', 'high.school', 'illiterate', 'professional.course', 'university.degree', and 'unknown'. The dataset shows a range of education levels among customers. There are missing values in this feature.
+                        </li>
+                        <div class="d-flex justify-content-start align-items-start">
+                            <img src="../../Assets/research_images/bank_marketing/education.png" class="img-fluid" style="width: 80%;">
+                        </div>
+                        
+                        <li><strong>Credit Default:</strong> Indicates whether the user has any credit in default.<br>
+                            The 'Default' feature is binary, where 'yes' indicates a credit default, and 'no' indicates no credit default. This feature helps in assessing the financial risk of a customer.
+                        </li>
+                        <div class="d-flex justify-content-start align-items-start">
+                            <img src="../../Assets/research_images/bank_marketing/default.png" class="img-fluid" style="width: 80%;">
+                        </div>
+                        
+                        <li><strong>Balance:</strong> Represents the average yearly balance in euros.<br>
+                            The 'Balance' feature is a numeric integer representing the average yearly balance of the customer in euros. It is a key indicator of a customer's financial situation.
+                        </li>
+                        <div class="d-flex justify-content-start align-items-start">
+                            <img src="../../Assets/research_images/bank_marketing/balance.png" class="img-fluid" style="width: 80%;">
+                        </div>
+                        
+                        <li><strong>Housing Loan:</strong> Indicates whether the user has a housing loan.<br>
+                            The 'Housing' feature is binary, where 'yes' indicates the user has a housing loan, and 'no' indicates they do not. This is important for understanding the user's financial obligations.
+                        </li>
+                        <div class="d-flex justify-content-start align-items-start">
+                            <img src="../../Assets/research_images/bank_marketing/housing.png" class="img-fluid" style="width: 80%;">
+                        </div>
+                        
+                        <li><strong>Personal Loan:</strong> Indicates whether the user has a personal loan.<br>
+                            The 'Loan' feature is binary, with 'yes' representing a customer who has a personal loan and 'no' representing a customer without one. It is an important factor in evaluating customer debt.
+                        </li>
+                        <div class="d-flex justify-content-start align-items-start">
+                            <img src="../../Assets/research_images/bank_marketing/loan.png" class="img-fluid" style="width: 80%;">
+                        </div>
+                        
+                        <li><strong>Contact Communication Type:</strong> Represents the type of communication used to contact the customer.<br>
+                            The 'Contact' feature is categorical, with values like 'cellular' and 'telephone'. It identifies the method used to reach the customer during the marketing campaign. Note that this feature has missing values.
+                        </li>
+                        <div class="d-flex justify-content-start align-items-start">
+                            <img src="../../Assets/research_images/bank_marketing/contact.png" class="img-fluid" style="width: 80%;">
+                        </div>
+                        
+                        <li><strong>Last Contact Day of Week:</strong> Represents the day of the week when the last contact was made.<br>
+                            The 'Day_of_Week' feature is a date attribute that indicates the day of the week when the most recent contact took place. It helps to analyze the impact of specific days on customer responses.
+                        </li>
+                        <div class="d-flex justify-content-start align-items-start">
+                            <img src="../../Assets/research_images/bank_marketing/day_of_week.png" class="img-fluid" style="width: 80%;">
+                        </div>
+                        
+                        <li><strong>Last Contact Month:</strong> Represents the month when the last contact was made.<br>
+                            The 'Month' feature is categorical and indicates the month in which the last contact was made. This helps identify seasonal patterns in customer behavior.
+                        </li>
+                        <div class="d-flex justify-content-start align-items-start">
+                            <img src="../../Assets/research_images/bank_marketing/month.png" class="img-fluid" style="width: 80%;">
+                        </div>
+                        
+                        <li><strong>Last Contact Duration:</strong> Represents the duration of the last contact in seconds.<br>
+                            The 'Duration' feature is numeric and measures the length of the last call in seconds. It has a strong correlation with the target variable, as longer calls may indicate a higher likelihood of subscription.
+                        </li>
+                        <div class="d-flex justify-content-start align-items-start">
+                            <img src="../../Assets/research_images/bank_marketing/duration.png" class="img-fluid" style="width: 80%;">
+                        </div>
+                        
+                        <li><strong>Campaign Contacts:</strong> Represents the number of contacts made during the campaign.<br>
+                            The 'Campaign' feature is a numeric value representing the number of contacts made for a client during the current campaign. This is an important indicator of customer engagement.
+                        </li>
+                        <div class="d-flex justify-content-start align-items-start">
+                            <img src="../../Assets/research_images/bank_marketing/campaign.png" class="img-fluid" style="width: 80%;">
+                        </div>
+                        
+                        <li><strong>Days Since Last Contact:</strong> Represents the number of days since the client was last contacted in a previous campaign.<br>
+                            The 'Pdays' feature is numeric and measures the time passed since the client's last contact in a prior campaign. This can influence the likelihood of success in current marketing efforts.
+                        </li>
+                        <div class="d-flex justify-content-start align-items-start">
+                            <img src="../../Assets/research_images/bank_marketing/pdays.png" class="img-fluid" style="width: 80%;">
+                        </div>
+                        
+                        <li><strong>Previous Contacts:</strong> Represents the number of contacts made before the current campaign.<br>
+                            The 'Previous' feature is numeric and indicates how many contacts were made to the customer before the current campaign. This attribute provides insight into the customer's prior engagement with the bank.
+                        </li>
+                        <div class="d-flex justify-content-start align-items-start">
+                            <img src="../../Assets/research_images/bank_marketing/previous.png" class="img-fluid" style="width: 80%;">
+                        </div>
+                        
+                        <li><strong>Outcome of Previous Campaign:</strong> Represents the outcome of the last marketing campaign.<br>
+                            The 'Poutcome' feature is categorical, with possible values like 'failure', 'nonexistent', and 'success'. This helps assess the effectiveness of prior marketing efforts. This feature also has missing values.
+                        </li>
+                        <div class="d-flex justify-content-start align-items-start">
+                            <img src="../../Assets/research_images/bank_marketing/poutcome.png" class="img-fluid" style="width: 80%;">
+                        </div>
+                        
+                        <li><strong>Subscription Status:</strong> The target variable, which indicates if the client subscribed to a term deposit.<br>
+                            The 'y' feature is binary, where 'yes' indicates that the client subscribed to a term deposit and 'no' indicates that they did not. This is the key target variable of the dataset.
+                        </li>
+                        <div class="d-flex justify-content-start align-items-start">
+                            <img src="../../Assets/research_images/bank_marketing/y.png" class="img-fluid" style="width: 80%;">
+                        </div>
+
+                        <li><strong>Correlations:</strong> In the attribute analysis, a correlation matrix was created to identify highly correlated features. Features with a correlation weight higher than 0.95 were removed to prevent multicollinearity, which can negatively affect the model's performance. The correlation matrix was created using RapidMiner's 'Correlation Matrix' operator with the 'Normalize Weights' option enabled, and the 'Squared Correlation' method for calculating correlations. Based on the results, it was decided to remove the following features: 'duration', 'default', and 'loan', as they showed high correlations with other features, which could lead to overfitting and poor model performance.<br>
+                            Below is the generated correlation matrix:
+                        </li>
+                        <div class="d-flex justify-content-start align-items-start">
+                            <img src="../../Assets/research_images/bank_marketing/correlation_matrix.png" class="img-fluid" style="width: 20%;">
+                        </div>
+                        <li><strong>Handling Missing Values:</strong> During the data preprocessing, we carefully addressed the missing values to ensure the data's quality. The decisions made were as follows:
+                            <ul>
+                                <li><strong>Imputation with Mode:</strong> The categorical attributes 'job' and 'education' had missing values, and these were imputed with the mode (the most frequent value) of each attribute. This technique helps preserve the distribution of the data and is commonly used for categorical features with missing values.</li>
+                                <li><strong>Removal:</strong> The attributes 'poutcome' (with 36959 missing values) and 'contact' (with 13020 missing values) were removed. These attributes had a large number of missing values, which could introduce noise or bias in the model. Removing them helps reduce complexity and potential issues in model training.</li>
+                            </ul>
+                            Below are the visualizations of the missing values handling:
+                        </li>
+                        <div class="d-flex justify-content-start align-items-start">
+                            <img src="../../Assets/research_images/bank_marketing/missing_values_imputation.png" class="img-fluid" style="width: 60%;">
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-start align-items-start">
+                            <img src="../../Assets/research_images/bank_marketing/missing_values_removal.png" class="img-fluid" style="width: 50%;">
+                        </div>
+                        <br>
+                        <h5>Random Forest Model Application</h5>
+                        <p>Process created using the Random Forest algorithm to classify and predict outcomes based on a set of features.</p>
+                      
+                        <p>1. Data Cleaning:  
+                            The first step involves cleaning the dataset. This cleaning is based on the feature study above, where columns with many missing values, such as 'poutcome' and 'contact', are removed. Additionally, special identifier columns like 'ID' are dropped. Missing values in categorical columns such as 'job' and 'education' are imputed using the mode (most frequent value). 
+                        </p>
+
+                        <div class="d-flex justify-content-start align-items-start" style="margin-top: 20px;">
+                            <img src="../../Assets/research_images/bank_marketing/dataCleaningProcess.png" class="img-fluid" style="width: 50%;">
+                        </div>
+                        <br>
+
+                        <p>2. Data Preprocessing:  
+                            Categorical variables are encoded into numerical values using Label Encoding. This allows the Random Forest model to work with them since it can only handle numerical data. The target variable 'y' is also converted into binary numeric values, with 'yes' mapped to 1 and 'no' mapped to 0.
+                        </p>
+                        <div class="d-flex justify-content-start align-items-start" style="margin-top: 20px;">
+                            <img src="../../Assets/research_images/bank_marketing/dataPreProcess.png" class="img-fluid" style="width: 50%;">
+                        </div>
+                        <br>
+
+                        <p>3. Model Training and Evaluation:  
+                            The model was initially trained using 100 estimators (trees). After observing the results, the model was retrained with 1,000 estimators to evaluate whether a higher number of trees would improve performance. However, with 1,000 trees, there were no significant improvements in accuracy compared to the model trained with 100 trees. The cost of computation increased substantially, making it less efficient for this problem.
+                        </p>
+
+                        <p>4. Cross-validation:  
+                            The dataset was split into 10 parts (folds), and in each fold, the model was trained on 9 folds and tested on the remaining fold. This process ensures that each data point is used for both training and testing, helping to avoid overfitting and assess the model's generalization ability. Accuracy and confusion matrices are calculated for each fold to measure the model's performance.
+                        </p>
+                        <div class="d-flex justify-content-start align-items-start" style="margin-top: 20px;">
+                            <img src="../../Assets/research_images/bank_marketing/rf_training_1000.png" class="img-fluid" style="width: 50%;">
+                        </div>
+                        <br>
+
+                        <p>5. Accuracy and Confusion Matrix:  
+                            After the cross-validation process, the average accuracy of the model across all folds was calculated. The confusion matrix was also averaged across folds to assess the model's classification performance, showing how many true positives, true negatives, false positives, and false negatives were predicted.
+                        </p>
+                        <div class="d-flex justify-content-start align-items-start" style="margin-top: 20px;">
+                            <img src="../../Assets/research_images/bank_marketing/rf_accuracy_cf.png" class="img-fluid" style="width: 50%;">
+                        </div>
+                        <br>
+                        <p>6. Feature Importance:  
+                            Random Forest models provide insights into the importance of each feature in making predictions. The feature importances are ranked, showing which attributes have the greatest impact on the model’s decisions.
+                        </p>
+                        <div class="d-flex justify-content-start align-items-start" style="margin-top: 20px;">
+                            <img src="../../Assets/research_images/bank_marketing/rf_fi.png" class="img-fluid" style="width: 50%;">
+                        </div>
+                        <br>
+
+                        <h5>Results of the Model</h5>
+                        <p>The cross-validation process resulted in an <strong>average accuracy of 88.54%</strong>, demonstrating the model’s strong performance in predicting the target variable. However, the confusion matrix analysis revealed some misclassifications, particularly in recognizing positive cases.</p>
+
+                        <div class="d-flex justify-content-start align-items-start" style="margin-top: 20px;">
+                            <img src="../../Assets/research_images/bank_marketing/accuracy_100.png" class="img-fluid" style="width: 40%;">
+                        </div>
+                        <br>
+
+                        <h5>Feature Importance</h5>
+                        <p>The following table shows the feature importances as determined by the Random Forest model, sorted by their contribution to the classification task.</p>
+
+                        <div class="d-flex justify-content-start align-items-start" style="margin-top: 20px;">
+                            <img src="../../Assets/research_images/bank_marketing/feature_importance_100.png" class="img-fluid" style="width: 30%;">
+                        </div>
+                        <br>
+
+                        <h5>Experimenting with the Number of Estimators</h5>
+                        <p>The performance of the Random Forest model was further evaluated by comparing the results with 100 estimators versus 1000 estimators. The increase in estimators showed some improvement in model stability, but the accuracy did not improve significantly. However, the computational cost increased drastically when using 1000 estimators, which made it less efficient for this particular task.</p>
+
+                        <div class="d-flex justify-content-between align-items-start" style="margin-top: 20px;">
+                            <div class="d-flex justify-content-center" style="width: 45%;">
+                                <h6>100 Estimators</h6>
+                                <img src="../../Assets/research_images/bank_marketing/accuracy_100.png" class="img-fluid" style="width: 100%;">
+                            </div>
+                            <div class="d-flex justify-content-center" style="width: 45%;">
+                                <h6>1000 Estimators</h6>
+                                <img src="../../Assets/research_images/bank_marketing/accuracy_1000.png" class="img-fluid" style="width: 100%;">
+                            </div>
+                        </div>
+                        <br>
+                        <h5>Conclusion</h5>
+                        <p>
+                            The Random Forest model demonstrated solid performance with an average accuracy of 88.54% across 10-fold cross-validation. 
+                            The average confusion matrix confirmed the model's effectiveness in distinguishing between the target classes; however, 
+                            it also revealed a notable number of false negatives. This suggests that the model struggles to correctly identify the 
+                            positive class, which may be attributed to a significant class imbalance in the dataset.
+                        </p>
+
+                        <p>
+                            The feature importance analysis revealed that variables such as <strong>balance</strong> (22.43%), <strong>age</strong> (17.55%), 
+                            and <strong>day_of_week</strong> (14.62%) were the most influential in predicting the outcome. These results validate the 
+                            significance of these attributes in the context of the problem and suggest opportunities for further optimization by 
+                            focusing on these key features.
+                        </p>
+
+                        <p>
+                            Increasing the number of estimators from 100 to 1000 did not lead to significant improvements in accuracy, emphasizing 
+                            that added complexity does not always yield better performance. Moreover, the computational cost of using 1000 estimators 
+                            was substantially higher, underlining the importance of balancing accuracy with efficiency in practical implementations.
+                        </p>
+
+                        <p>
+                            In conclusion, the model achieves a good balance between accuracy and generalization, providing reliable predictions for 
+                            the analyzed dataset. However, the presence of many false negatives highlights the need for strategies to address the 
+                            class imbalance, such as resampling techniques or adjusted classification thresholds. These adjustments could enhance 
+                            the model's ability to identify the positive class, improving its overall performance and applicability.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+                        <div class="text-center text-inverse navbar-inverse">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="footer-col col-md-4" id="contact">
+                                        <h3>Location</h3>
+                                        <p>Montevideo, Uruguay</p>
+                                    </div>
+                                    <div class="footer-col col-md-4">
+                                        <h3>Connect</h3>
+                                        <ul class="list-inline">
+                                            <li>
+                                                <!-- <a class="medium" href="https://github.com/Ionasjospo" target="newwindow"><span
+                                                        class="fui-github"></span></a> -->
+                                            </li>
+                                            <li>
+                                                <!-- <a class="medium" href="https://www.linkedin.com/in/ionas-josponis/"
+                                                    target="newwindow"><span class="fui-linkedin"></span></a> -->
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="footer-col col-md-4">
+                                        <h3>Hire Us</h3>
+                                        <p>We are available for workshops</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+                            integrity="sha384-HoRfnjQe6LRgsZAWB7tF0/J9UvcrHJ/tDvkfjTcZ4IM3wb/SuRoGJb7nVLv9ej3M"
+                            crossorigin="anonymous"></script>
+
+</body>
+</html>
