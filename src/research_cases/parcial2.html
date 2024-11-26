@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        img {
+            width: 30%;
+            height: auto;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-size: 2rem !important;
+        }
+        h3, h4 {
+            font-size: 1.75rem !important;
+        }
+        h5, h6 {
+            font-size: 1.5rem !important;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            word-wrap: break-word;
+            white-space: normal;
+            box-sizing: border-box;
+        }
+
+        * {
+            box-sizing: inherit;
+        }
+
+        p {
+            font-size: 1rem !important;
+        }
+
+        .container {
+            max-width: 100%;
+        }
+    </style>
+        <title>Parcial 2</title>
+        <link rel="stylesheet" href="../../styles.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+                                                                                             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    </head>
+    <nav class="navbar navbar-inverse navbar-fixed-top transparent">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                                                                                             aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">Team # 2 AI Portfolio</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-12">
+                    <h4 style="text-align: center;">Segundo Parcial</h4>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdBMKcme3Z3z8xJwubJXpofhmLoVOeawZrkedDmqpGm0kq9OjAmRFYIvEyLePBcTvDPKbf2wrWTJJbsHLtWQl_kR-m84l-6DTzTgWm8UHJdxhLmPYM62L-KjZOlbeKWmvs?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<hr>
+<p></p>
+<p>Introducción a los métodos de aprendizaje automatizado</p>
+<hr>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p>Prof: Ernesto Ocampo</p>
+<p>Autores: Sebastian Quintana</p>
+<p>            Nicolas Lorenzo</p>
+<p>            Milagros Kucharski</p>
+<p>   Ionas Josponis                                </p>
+<p>26 de Noviembre de 2024</p>
+<p></p>
+<p></p>
+<h1>Caso de estudio</h1>
+<p>Etapa temprana de la enfermedad renal crónica (ERC) en la población india.</p>
+<h2>Tipo de problema</h2>
+<p>Supervisado, clasificación de 2 clases.</p>
+<h2>Información del dataset</h2>
+<p>Este dataset se conforma de datos acerca de la ERC, obtenidos a partir de información recolectada de un hospital durante un período de 2 meses. Mediante el uso de este dataset se puede predecir la existencia de ERC en etapas tempranas de la enfermedad, utilizando algoritmos de ML.</p>
+<p>Tiene un total de 400 datos y la distribución de la clase objetivo se compone de 250 casos positivos para padecer la enfermedad y 150 casos negativos de padecerla.</p>
+<h2>Contexto del problema</h2>
+<p>La enfermedad renal crónica, también llamada insuficiencia renal crónica, implica una pérdida gradual de la función renal. Los riñones filtran los desechos y el exceso de líquidos de la sangre, que se eliminan a través de la orina. La enfermedad renal crónica avanzada puede provocar la acumulación de niveles peligrosos de líquido, electrolitos y desechos en el organismo (Nefropatía Crónica - Síntomas y Causas - Mayo Clinic, s. f.).</p>
+<p>Desde la década de los años 90, en diferentes regiones del mundo surgieron brotes de nefropatía crónica. Estas nefropatías regionales han sido identificadas a lo largo de la costa pacífica desde el sur de México hasta Panamá (nefropatía mesoamericana), en las provincias Central-Norte y Norte de Sri Lanka (nefropatía de Sri Lanka) y en la provincia Andhra Pradesh en India (nefropatía de Uddanam). </p>
+<p>La ERC se presenta principalmente en trabajadores jóvenes o de mediana edad de zonas agrícolas tropicales pobres, afectando especialmente a agricultores de arroz, marañón, coco y cortadores de caña de azúcar. En Mesoamérica, también se han encontrado índices altos en trabajadores de la construcción y minería, lo que sugiere un fuerte componente ocupacional relacionado con la exposición al calor y el esfuerzo físico intenso.</p>
+<p>Esta enfermedad ha tenido un gran impacto socioeconómico y de difícil manejo para las autoridades de la salud. La misma es asintomática hasta etapas avanzadas y en los países donde ocurre, no existen facilidades adecuadas de terapia renal sustitutiva y miles de trabajadores han muerto en las últimas décadas.</p>
+<p>Diversos factores de riesgo han sido investigados, incluyendo el consumo excesivo de medicamentos nefrotóxicos (AINEs y antibióticos), alcohol ilegal, bebidas azucaradas, hiperuricemia, predisposición genética, ácido aristolóquico y agentes infecciosos (leptospirosis, hantavirus, malaria). Inicialmente se sospechaba de una etiología tóxica por metales pesados y plaguicidas, similar al brote de la enfermedad itai-itai en Japón. Sin embargo, los estudios no han sido concluyentes ya que los patrones de contaminación no coinciden con la distribución de las nefropatías regionales.</p>
+<p>Actualmente existe consenso de que el estrés térmico es un factor clave, especialmente en la nefropatía mesoamericana. Estudios han demostrado que los cortadores de caña experimentan un esfuerzo cardíaco comparable a ejercicios intensos prolongados, realizando esta labor diariamente durante meses. El Programa WE en El Salvador demostró que la provisión de agua, descanso y sombra puede ayudar a detener el deterioro de la función renal durante la cosecha.</p>
+<p>Se están desarrollando importantes iniciativas de investigación internacional, como la colaboración liderada por el Karolinska Institutet para comparar biopsias renales entre regiones, y el estudio DEGREE del London School of Hygiene and Tropical Medicine, que busca determinar la distribución global de la enfermedad y sus factores etiológicos. La enfermedad ha sido reportada en múltiples países,        incluyendo Nepal, Indonesia, Filipinas, varios países africanos y sudamericanos, siempre afectando a trabajadores pobres que realizan labores pesadas en calor extremo.</p>
+<p>Aunque no se ha establecido con certeza que las nefropatías en diferentes regiones correspondan a la misma entidad clínica, comparten características similares: se comportan como una nefritis túbulo-intersticial sin proteinuria significativa, aunque las biopsias de cortadores de caña de Nicaragua y El Salvador también muestran patología glomerular primaria importante. El impacto socioeconómico ha sido significativo, especialmente considerando que la enfermedad es asintomática hasta etapas avanzadas y los países afectados tienen acceso limitado a terapia renal sustitutiva (Wesseling & Weiss, 2017).</p>
+<p></p>
+<p></p>
+<h1>Procesamiento del dataset en Python</h1>
+<p></p>
+<p>El dataset propuesto se encuentra en formato .arff el cual no es soportado por Rapid Miner sin pretratamiento, para ello se debió convertir a un formato conocido para ambas herramientas (Python y Rapid Miner), se eligió formato csv.</p>
+<p>Además de estar en dicho formato, se encontraron fallas en el dataset, como por ejemplo, líneas que al tener una “,” al final, Python interpreta que tiene una columna más. </p>
+<p>Otro problema descubierto, es la existencia de un campo vacío identificado por “,,” seguidas, pero este campo vacío no significa un faltante, sino que simplemente es un error de digitación o al formatear la información, ya que dicha línea, a partir de ese “dato” queda con la información “corrida” a la derecha.</p>
+<p>Para estos problemas, se decidió identificar estas líneas (3), buscarlas en el dataset, borrar la “,” extra, ya sea al final o entre datos.</p>
+<p></p>
+<p>Se utilizó el siguiente código para identificar las líneas:</p>
+<p></p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXc--WqWCZsotRLFRBplZmlsMtRR-Hqi4OR7zq4GDIdPWwsmqjTiSzvxPyQ2LnQ2vu0ChaZ2OAjfhog8ZZ5VVyHRqXOt-v3bfwq3YnkZkTsEQfsa-Wyq2A1YVkWKheuEyA?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>Obteniendo como resultado las siguientes líneas:</p>
+<p></p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXe5QPf1UPzvxmDtAeOYhG6_Yl5lq4H9sJTGmuh-V0-8k-1o3BQJWs4Mdu-khF0CQUyx1n4aRMEEscGnK98xqhmar-LxmgDmA_50xSj1BKV54DzVeq2cIm-RQxo2bUnwbzk?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>Luego de solucionados los problemas puntuales de las líneas anteriormente mencionadas, se vuelve a ejecutar el proceso así persiste todos los datos.</p>
+<p></p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXd5ELsqmUILCKY-nKkyHHkZEh-4wvZ1Fu6XA2aeqXjoI0mGxlLG8AE_nNMSh1UdU1EiBSBu4nhb70nJ19wyds-E-BwItfTX5hPWXDOmFsCy56FWXkdqXAbKuBKRN8dvVz0?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>Como se puede apreciar en la imagen, el proceso ya no devuelve líneas incorrectas (con 26 columnas).</p>
+<p></p>
+<p>Con el dataset ya en el formato deseado y procurando mantener la integridad de todas las líneas, se procede a trabajar con el preprocesamiento adecuado para cada algoritmo seleccionado.</p>
+<h1>Análisis de los atributos</h1>
+<p>El dataset tiene un total de 25 atributos, 24 regulares y la variable objetivo con 2 clases. Entre los atributos regulares hay de tipo numérico, polinomial y binominal.</p>
+<p>Para hacer un análisis más exhaustivo de los mismos, exportamos el conjunto de datos en RapidMiner para poder analizar los atributos y sus gráficas.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcuIm8Y7ESB1nFmqbt--mpnXYolimTMEy2xKgGqQw4PrZO4NcHluF9EI1dsOV1q_mdUDkJ_dld9aIr1gYsI4xkcoL2-Z2BQBom-r6elIet6SoqlxZkpjsmoEqXwfkx-2Kc?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>Class: Es la variable objetivo, si la persona tiene la enfermedad renal o no. Su tipo de datos es nominal. Tiene una distribución sesgada a la izquierda. No tiene valores faltantes.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdHEBAnyw2Mc-FlBM0EyQdfl7qoNskmL4ogJXWhxmftvfYY9W2fZx4-gotqHCM_mCVXtHlDWNEIElxtB9CE4Rr588qLNfGk3XT7th65xeNzlYK7DYcdUTRFEaLJyZT1Uw?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>Age: Representa la edad de las personas. Su tipo de datos es entero. Tiene una distribución discreta y uniforme. Presenta valores faltantes.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXf85cAIkiXdeC3ZrU0tAmNmrxtxrBf3mPdR3KmoFrQTmSxe8h4fWI5N6qrACG3sk2ZEqhgOsuGMeWID2QO0oFIPHIaWrDtKdxjdxvsIWYPHqBtP6ci2W9mkxou_8cUHWA?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>BP(Blood Pressure): Indica la presión arterial de las personas. Su tipo de datos es entero. Tiene una distribución sesgada a la izquierda. Presenta valores faltantes.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfQYYtzuZ8E8ILCGQ3i0QcYVOqAsm9txi4nBzK7jt71VvXLbdKJA6h4I3Y1C5YAE_MZRI9ABx4Onr7jt6dDUt77261tHblNzTJ8A96g0mys1V2Qh87jgwm5aFQFeRTTkg?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p>SG(Specific Gravity): Indica la gravedad específica de la orina. Su tipo de datos es nominal. Tiene una distribución sesgada a la izquierda. Presenta valores faltantes.<img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdImyV83GvUxr4AEp2DQeYDdEr0sLb3q2UOCHWPv6qDAoye3qOxMFdCZ1zcsxDSVMLOONWb8GHVn4BtKE7zwIepviWlblQX55_8ds3JIj4ua1KwanOVzqUgSYf2VEXAMi8?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>Al(Albumin): Representa los niveles de albúmina en la orina. Su tipo de datos es nominal. Tiene una distribución sesgada a la izquierda. Presenta valores faltantes.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXebzGGwQ9ExnBcuD8hkuQX-4gnujiDiMGaZp9ylOzvajUY1TsSWJg166Drr3zz8tzyPvWFuvkwTTyYg9ot9tnlZdg01Nu_BNm30lTtXLHF-4TyPx5DOpAZWDx9wRU6yDg?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p>                </p>
+<p>Su(Sugar): Mide los niveles de azúcar en la orina. Su tipo de datos es nominal. Tiene una distribución sesgada a la izquierda. Presenta valores faltantes.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcXp_SBXvC4_dM5spGsYZ6IKJ9kQ2aQZK1nK61mkwRm7yy9rWAIpF2mm7lzuL8yicZzuaFGsSJbGtXJxUEz5V3QJEmCoEsNl_xaetCUnkk-QQZyxRPseNA-NyNtEcSkU8Y?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p>        </p>
+<p>RBC(Red Blood Cells): Representa la cantidad de glóbulos rojos. Su tipo de datos es nominal. Tiene una distribución categórica. Presenta valores faltantes.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdJI9Kg2tGY0mlg1ofC_KsL53l877zn7U-u9icyTMdZRns2hguLpo5iwyUoNRCa6Xm4o7gaUJ-c5dEpd0w_wHbKiEvvE_Ps00A2dfz9qa01qXnk7Ques_EqiEtOxT-Gek8?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>PC(Pus Cell): Representa la cantidad de células de pus. Su tipo de datos es nominal. Tiene una distribución categórica. Presenta valores faltantes.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXczu92MXhZtmZzGiu1nBSHkbd76LlxZIUeq8t0hUo5bvo3jGfBqPgVHDAx7rBxvh30ZQ9hHEx95NJqOiabkO0ZcwdCE9cq-2PdihbA7fGjr7fK2hOzgEuEZcliNIy2s9pM?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p>        </p>
+<p>PCC(Pus Cell clumps): Indica la presencia de aglomerados de células de pus. Su tipo de datos es nominal. Tiene una distribución categórica. Presenta valores faltantes.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdGmKXm_5p_frHssVVX2SJSUUDctD_vpWKNaxLNNEWcdZcWbd1bJTd3NsfHVqCa_D-IVcKsK_UO-DfcAayhlniM5MRRQd_Actca0AXaBbE0pWcYLpvakrxMabUpfGpF7N0?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>Ba(Bacteria): Muestra la presencia de bacterias en la muestra. Su tipo de datos es nominal. Tiene una distribución categórica. Presenta valores faltantes.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXd3s_5DeYz7ub1MQEE0bWzL-XRk8fDAvHiHK208gpJVbvMSce8P_TgcvJ2luRe1Dqj_Cys8W_ZO2wr_QqhIf1yWBqk1AcbbOE5k4uus0usgtxDq3ne1Y-z8OmS5oxCraEk?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>BGR(Blood Glucose Random): Representa los niveles aleatorios de glucosa en sangre. Su tipo de datos es entero. Tiene una distribución sesgada a la izquierda. Presenta valores faltantes.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfgJB1Fgpj3OrIOsExQf2d2huDFi-SFftYbsuKptRlcbtU0kCjkN_qwbJTZU2jSHmKcdLlx2ZkuW-xvPEjEFdJQOlHo22W5cZcmy5nuLFqgUlkwIn5IOnVEcDG1tpaFKw?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p>        </p>
+<p>BU(Blood Urea): Indica los niveles de urea en sangre. Su tipo de datos es entero. Tiene una distribución sesgada a la izquierda. Presenta valores faltantes.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeqcPwljHcUijS6sqsWun_XT__Lnr1xQfe-IkTepHJ68dgAtHjavDUDOtUpMuXgqDYmIoxnCDcGFzOdKgELUij_9swXIIMr6Tze9MY54VIQasdEN0-dvw95x6Moo6fny-w?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p> </p>
+<p>SC(Serum Creatinine): Representa los niveles de creatinina en suero. Su tipo de datos es real. Tiene una distribución sesgada a la izquierda. Presenta valores faltantes.        </p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXclazLY9aN0vabTsPcYhQ9Fc3gEbyIWae-KwezupCN-aiZkDR52aNTfzE2S8QjiFUXAEdD-BcIhIOMXbqDODJGrpchEN2licaaxCbHQ2Jp2D2CL3yVhIgyxv2yMUnxoTQ?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>Sod(Sodium):  Muestra los niveles de sodio en sangre. Su tipo de datos es entero. Tiene una distribución sesgada a la izquierda. Presenta valores faltantes.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcyeTcZ1PPP-8DwEATBNpCZfNvGWsmY5286Uw07WFu9lZMNxNmvsddNCkds7ailSaRFaeGQN1m42mImhWvSHWPRgFlI4u_PxD7uyVi_chx6y2Ht7zdu5doJRNnPKKoDfM0?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p>                </p>
+<p>Pot(Potassium): Indica los niveles de potasio en sangre. Su tipo de datos es real. Tiene una distribución sesgada a la izquierda. Presenta valores faltantes.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXe-F93Emh02F_JzKemUhV7HbnXS7YVE9QvwiMsdnmFOXGUiUMvp6trq9mAxJBHC6JqfPeRLoZneXgq6x2_2GM7tpt6FR1FPwH5kPXgzdd-ULH7zLS5jFxHp23WgMvvh5w?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p>         </p>
+<p>Hemo(Hemoglobin): Representa los niveles de hemoglobina en sangre. Su tipo de datos es real. Tiene una distribución sesgada a la izquierda. Presenta valores faltantes.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeRt7KQb8EXDKFN-sw8UiwT9Vz1AgKOrrd5TcBdSCUNs80PZO1ehpLujkCSK1M5jw8_RIYj31e-XKGTtJtY3-CnnoNmiN_Tilofmfzc8ETCm20JAp5U13Am6zCqfg8-J9U?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>PCV(Packed  Cell Volume): Indica el volumen de células empaquetadas en la sangre. Su tipo de datos es entero. Tiene una distribución sesgada a la izquierda. Presenta valores faltantes.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXd_zGLQyzG92sxTphfpKd_eBMti2RoA9WcvQRAhHN4VqUxzYbWYLNpoAzZVFyyztpXYxvP9ADfI3zSiVusYxqnvbhb2kOOA69P9VTbLKi2CG6MvsRgCCsOFX4IYfp3_TWI?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>WBCC(White Blood Cell Count): Refleja el conteo de glóbulos blancos en sangre. Su tipo de datos es entero. Tiene una distribución sesgada a la izquierda. Presenta valores faltantes.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXed_YTx541L7xAwSWF-zdf2qriOIXRti8mjkvIBRzQovfUYXblMR3cTAngciv5BOPNRk3RXTRZ6U4ne2GfLGHLpd4pZk2mshuovaXC2UZBXFdwsx3mKrKaW557V4ytthQ?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>RBCC(Red Blood Cell Count): Indica el conteo de glóbulos rojos en sangre. Su tipo de datos es real. Tiene una distribución sesgada a la izquierda. Presenta valores faltantes.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcbFW8Ao_oj2xvo59BBE4GAhYNASFSuAhf0kmeB9Hb6sFDAkAPaf4fzddOcfS9dS5fINPP1QqjQQCyxV9UxYADzNYZec2y0398lifsROudiF8sJPvjPJwWQ-rOrtQFyBQ?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>HTN(Hypertension): Indica si la persona tiene hipertensión. Su tipo de datos es nominal. Tiene una distribución binaria. Presenta valores faltantes.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeDdV_WZNbH-s_enFg6X74YklGAtcgL2DDC0QD8tb_5-xEnqg-YOtQJTqjRKOaPA4ARBpZ-1_ujo7XvHUzSo4XczUloJOGEQtkYAzG73HBftWP_i3y-_cOtAwfVIQo8iA?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>DM(Diabetes Mellitus): Representa si la persona tiene diabetes. Su tipo de datos es nominal. Tiene una distribución binaria. Presenta valores faltantes.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdimfs74ePSS5-_5o0aTYJHuzsErkXQgteFeb1dDwax4WuvOI_5sk_SBdKdEKlc-Niodn9bZ7T2gBrbgYXVubN_v7DAls3tn1Ra0roiHy31EIIFO-55d6x5c-zITfNkQqU?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>CAD(Coronary Artery Disease):  Indica si hay enfermedad arterial coronaria. Su tipo de datos es nominal. Tiene una distribución binaria. Presenta valores faltantes.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcjOw3P5zAaWA0CYgOy22Ibk4sUT9YR7KgQTHXkp9_nCenr9TRzai-OM9BY9Hqdov3EiRla4Hnt_doQvNJs94jRj0-t3ITfB6r74aNWs3PINwHbIG1a50FgrJefL4N_3Q?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>APPET(Appetite): Representa el apetito del paciente. Su tipo de datos es nominal. Tiene una distribución binaria. Presenta valores faltantes.</p>
+<h3><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXe4i76UFyLO1JjQ00xew3HTF_qzeQwZa8TE70E5pJ0U7MIzZAb7fwEIXcB5rWkQTonQFSawtDZ7-ZybzRLudfbUh5KDKtS67ZlN-8KuKThOwxR0729hoWyEZjJ3W--96g?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></h3>
+<p></p>
+<p>PE(Pedal Edema): Indica si la persona presenta edema pedal. Su tipo de datos es nominal. Tiene una distribución binaria. Presenta valores faltantes.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcr9XLWiH3iZ3VPvo5_GyUqBEmOMOoRXH1jLyqKeLzk6DhcN21N612IctIn0loC6IP9nMWr9OGA5eKdy7szW9Mjdhtm2xX8DXRgwPw7f57sAnC08EL_CNyy01yPB6Vj7DY?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>ANE(Anemia): Representa si la persona tiene anemia. Su tipo de datos es nominal. Tiene una distribución binaria. Presenta valores faltantes.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfm5MM_0SHhnXM6rutvVX2w6l5LGeEJ_n1umq4HWJM6EMzpTWP7S5DQIXF7fAC4OJy12fknFl6VT3NNwS_oqKOx1DQUmr34D-9adZ-TT-CGGPFrxoFnLPQyt10TZMUI8xs?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<h1>Support Vector Machine</h1>
+<h2>Support Vector Machine en RapidMiner</h2>
+<h3>Preprocesamiento de datos</h3>
+<p>Primero antes de comenzar cambiamos el formato de algunas clases ya que RapidMiner reconoció todos los formatos como polinomiales. Los atributos cambiados fueron:</p>
+<ul>
+<li>A ‘real’ fueron cambiados los atributos: sc, pot, hemo y rbcc</li></ul>
+<ul>
+<li>A ‘integer’ fueron cambiados los atributos: age, bp, bgr, bu, sod, pvc y wbcc. </li></ul>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeHEF9nUY2W43E6hnLg-A6Juh8ogiWCl1IUChVEn43h0pZQynhelte2oDJHra_r9szZhIDx1-dLM_xeGX6GAjobGaSZK2pC86xcGkY3cCMsxAC0p-vvr71ckStWw-UPEYk?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<h4>Criterio de imputación de valores faltantes</h4>
+<p>La imputación de los valores faltantes depende del tipo de dato de cada atributo. </p>
+<p></p>
+<p>- Atributos numéricos:</p>
+<p>Para atributos numéricos podemos usar la media o mediana. Esto depende de cada atributo.</p>
+<p></p>
+<p>Usaremos la media cuando la distribución es simétrica(distribución normal), la media es representativa del centro de los datos.</p>
+<p>Usaremos la mediana cuando la distribución es asimétrica (sesgada), la mediana es más robusta y no se ve afectada por valores extremos (outliers).</p>
+<p>- Atributos categóricos</p>
+<p>Los atributos categóricos los sustituiremos por la categoría más frecuente.</p>
+<p>- Atributos categóricos binarios</p>
+<p>La moda es el mejor método para imputarlos porque representa la categoría más frecuente en el dataset.</p>
+<p>-Por último si tenemos demasiados valores faltantes, eliminaremos el atributo.</p>
+<h4></h4>
+<h4></h4>
+<h4>Transformación de los datos</h4>
+<p>Dado que SVM trabaja mejor con valores numéricos, debemos transformar los atributos de este dataset, dado que RapidMiner interpreta que todos los datos son del tipo nominal.</p>
+<p>Class: Transformaremos este atributo a numérico, donde 0 representa "notckd" y 1 representa "ckd". </p>
+<p>Age: Transformaremos los valores a numéricos, ya que representan la edad. Los valores faltantes se imputarán con la mediana.</p>
+<p>BP (Blood Pressure): Transformaremos los valores a numéricos, ya que representan la presión sanguínea. Los valores faltantes serán imputados con la mediana.</p>
+<p>SG (Specific Gravity): Este atributo es categórico ordinal, por lo que convertiremos sus valores a números representativos según el orden lógico (por ejemplo: 1.005 → 1, 1.010 → 2, etc.). Los valores faltantes serán imputados con la moda.</p>
+<p>AL (Albumin): Transformaremos los valores a numéricos, ya que indican niveles de albúmina. Los valores faltantes serán imputados con la moda.</p>
+<p>SU (Sugar): Transformaremos los valores a numéricos, ya que indican los niveles de azúcar. Los valores faltantes serán imputados con la moda.</p>
+<p>RBC (Red Blood Cells): Este atributo fue excluido del proceso debido a su gran cantidad de valores faltantes(el 38% de sus datos son valores faltantes).</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdlIMDNztFUyenAcK7IA5LX0gaY5qeGsXQuhBdKYCbYT7bnPF_R2lYJzNwvrBzyFhNbSZ1gE1XlQ42x93rwOxpg8a0b-AB8uGed-YKB0gQtmkELe5B5OAvtXawFvpkdpss?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p>PC (Pus Cell): Este atributo es categórico binario, por lo que convertiremos los valores "normal" a 0 y "abnormal" a 1. Los valores faltantes serán imputados con la moda.</p>
+<p>PCC (Pus Cell Clumps): Este atributo es categórico binario, por lo que convertiremos los valores "notpresent" a 0 y "present" a 1. Los valores faltantes serán imputados con la moda.</p>
+<p>BA (Bacteria): Este atributo es categórico binario, por lo que convertiremos los valores "notpresent" a 0 y "present" a 1. Los valores faltantes serán imputados con la moda.</p>
+<p>BGR (Blood Glucose Random): Transformaremos los valores a numéricos, ya que representan niveles de glucosa. Los valores faltantes serán imputados con la mediana.</p>
+<p>BU (Blood Urea): Transformaremos los valores a numéricos, ya que representan niveles de urea. Los valores faltantes serán imputados con la mediana.</p>
+<p>SC (Serum Creatinine): Transformaremos los valores a numéricos, ya que representan niveles de creatinina en suero. Los valores faltantes serán imputados con la mediana.</p>
+<p>SOD (Sodium): Transformaremos los valores a numéricos, ya que representan niveles de sodio. Los valores faltantes serán imputados con la mediana.</p>
+<p>POT (Potassium): Transformaremos los valores a numéricos, ya que representan niveles de potasio. Los valores faltantes serán imputados con la mediana.</p>
+<p>Hemo (Hemoglobin): Transformaremos los valores a numéricos, ya que representan niveles de hemoglobina. Los valores faltantes serán imputados con la mediana.</p>
+<p>PCV (Packed Cell Volume): Transformaremos los valores a numéricos, ya que representan el volumen de células empaquetadas. Los valores faltantes serán imputados con la mediana.</p>
+<p>WBCC (White Blood Cell Count): Transformaremos los valores a numéricos, ya que representan el recuento de glóbulos blancos. Los valores faltantes serán imputados con la mediana.</p>
+<p>RBCC (Red Blood Cell Count): Transformaremos los valores a numéricos, ya que representan el recuento de glóbulos rojos. Los valores faltantes serán imputados con la mediana.</p>
+<p>HTN (Hypertension): Este atributo es categórico binario, por lo que convertiremos los valores "no" a 0 y "yes" a 1. Los valores faltantes serán imputados con la moda.</p>
+<p>DM (Diabetes Mellitus): Este atributo es categórico binario, por lo que convertiremos los valores "no" a 0 y "yes" a 1. Los valores faltantes serán imputados con la moda.</p>
+<p>CAD (Coronary Artery Disease): Este atributo es categórico binario, por lo que convertiremos los valores "no" a 0 y "yes" a 1. Los valores faltantes serán imputados con la moda.</p>
+<p>APPET (Appetite): Este atributo es categórico binario, por lo que convertiremos los valores "good" a 0 y "poor" a 1. Los valores faltantes serán imputados con la moda.</p>
+<p>PE (Pedal Edema): Este atributo es categórico binario, por lo que convertiremos los valores "no" a 0 y "yes" a 1. Los valores faltantes serán imputados con la moda.</p>
+<p>ANE (Anemia): Este atributo es categórico binario, por lo que convertiremos los valores "no" a 0 y "yes" a 1. Los valores faltantes serán imputados con la moda.</p>
+<p></p>
+<p></p>
+<p>Resumiendo:</p>
+<p>Usaremos los siguientes operadores de RapidMiner para transformar los datos dentro del subproceso llamado ‘Data prep’.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfeOjVXhHj5RKDCiM3ellTa2oK8bcN9RlguTZusjgqg-JUCzTQPE1ILR3WcimC_sjUir8m2HFu1vJPY-7NYBmaG9WPAkDZKrAImE7tO_p2PYxcsQzIyS_igTZaAHZJu2NY?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p>Select Attributes: En este operador excluimos el atributo ‘rbc’.</p>
+<p></p>
+<p>Subproceso ‘MissingValuesByModa’:<br>Se realizó la imputación de valores faltantes para los atributos categóricos utilizando la moda, ya que es el método más adecuado para este tipo de datos. Sin embargo, dado que RapidMiner (o al menos en esta versión utilizada) no cuenta con una opción directa para imputar automáticamente la moda para múltiples atributos simultáneamente, se tuvo que implementar el proceso en grupos de atributos que compartían la misma moda. Esto permite simplificar la tarea y optimizar el número de operadores utilizados.</p>
+<p>Se identificaron las modas para cada atributo categórico y los atributos con la misma moda fueron agrupados. A continuación, se configuraron operadores Replace(reemplazamos el caracter ‘\?’ por la moda adecuada) de la siguiente manera:</p>
+<ol start="1">
+<li>Atributos con moda 0: Se agruparon los atributos AL y SU para ser imputados con el valor 0.</li>
+<li>Atributos con moda 1.020: El atributo SG se imputa de forma individual con el valor 1.020.</li>
+<li>Atributos con moda normal: El atributo PC fue imputado con el valor normal.</li>
+<li>Atributos con moda notpresent: Se agruparon los atributos PCC y BA para ser imputados con el valor notpresent.</li>
+<li>Atributos con moda no: Los atributos HTN, DM, CAD, PE, y ANE fueron imputados con el valor no.</li>
+<li>Atributo con moda good: El atributo APPET se imputó con el valor good.</li></ol>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdASAo4yY8vUyg9Osndx5RHbaGuCOAw7RigU-LzYD7xARJY_Bk_DpFJLJbh4KWIqGXrnGabTBN7rh3-kAr1l9ULHcuBuP_xI8UBS1dBWpfF3tqOTROGymO6AMdq6fOI4IA?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p>Nominal to Numerical: los siguientes atributos fueron transformados a numéricos: al, ane, appet, ba, cad, class, dm, htn, pc, pcc, pe, rbc, sg, su</p>
+<p>Operador ‘MissingValuesByAvg’: Usamos este operador para sustituir los valores faltantes por la media, ya que RapidMiner no tiene una opción para cambiar directamente por la mediana.  Se seleccionaron los siguientes atributos:</p>
+<p>age, bgr, bp, bu, hemo, pcv, pot, rbcc, sc, sod y wbcc</p>
+<p></p>
+<h4>Proceso principal </h4>
+<p></p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXf5uhANdRXYfvjFn6KPQs7TGtvwn__5cLt98FLF7kjf7GBV3_2e-B_d4ZV7rxafHo7pJzXWhrG8msuu_h91_7YjBK2ds6zvmuqpNHC2kYL0yeDFl2-a70LQ_oZU3mXnYg?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>Operador ‘Split Data’:</p>
+<p>Luego de realizar el preprocesamiento de los datos en el subproceso ‘Data prep’, separamos los datos con el 70% de los datos para entrenar el modelo y el 30% para la evaluación del modelo</p>
+<p></p>
+<p>Operador ‘SVM’:</p>
+<p>Usamos el operador SVM, conectamos la primera salida del ‘Split Data’(datos de entrenamiento). Usamos el tipo de kernel lineal ya que nuestros datos son linealmente separables. Los otros parámetros los dejamos por defecto.</p>
+<p></p>
+<p>Operador ‘Apply model’:</p>
+<p>Posteriormente conectamos la segunda salida del ‘Split Data’(datos de validación) y también conectamos los datos entrenados por ‘SVM’ a la entrada ‘mod’.</p>
+<p></p>
+<p>Operador ‘Performance(Binomial Classification)’:</p>
+<p>Optamos por utilizar el operador 'Performance (Binomial Classification)' en lugar del ‘Performance(Support vector)’ específico del algoritmo porque este último presenta mayores limitaciones en cuanto a los valores que ofrece. En particular, el operador específico del algoritmo no genera una matriz de confusión, lo cual es fundamental para evaluar modelos de clasificación, ya que de esta se derivan indicadores clave como precisión, recall, F1-score y exactitud.</p>
+<p>Además, el operador 'Performance (Binomial Classification)' proporciona un análisis más amplio y detallado del desempeño del modelo, incluyendo métricas como el AUC (Área Bajo la Curva) y las curvas ROC (Curva Característica Operativa del Receptor), que son esenciales para comprender los compromisos entre las tasas de verdaderos positivos y falsos positivos. Esta flexibilidad lo convierte en una mejor opción para evaluar e interpretar modelos de clasificación binomial de manera integral.</p>
+<p></p>
+<h4>Resultados finales</h4>
+<p>Al correr el proceso obtenemos los siguientes resultados:</p>
+<p></p>
+<p>Matriz de confusión: Los resultados indican un sólido desempeño del modelo con una precisión general del 95.83%. La clase "ckd" alcanzó una precisión del 100%, lo que significa que todos los casos predichos fueron correctamente clasificados. La clase "notckd" presenta una precisión ligeramente menor del 90%, indicando una tasa baja de falsos positivos. Además, los valores de recall de 93.33% para "ckd" y 100% para "notckd" muestran que el modelo identifica de manera efectiva la mayoría de los casos verdaderos.</p>
+<p><br><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfED6HfPDMcytRvrH6cKPbTVLdPI8yWq1CNgi-3F5L1uJDGWo7T-H1PLnoyxJPs-nlKj2GgTN9tad4cBrg1V1gMCwxw7uQXjvaLh6GrCbEMhFKWfBIJkrYN1zL8qAs6QtM?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>ROC: </p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXczxlcNtizbSVwzKHUJ7Lq9763zMahEJG2nRzVUm1poVEFBxMmWGT2M68tS3hyucYfl0TJoPqOucu3o5iv3QTTkW5LhDMaDawjQaVpMXO1t0jLqVy23LdMZXj1vB_x3EQ?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p></p>
+<p></p>
+<h4></h4>
+<p></p>
+<h2></h2>
+<h2></h2>
+<h2></h2>
+<p></p>
+<p></p>
+<p></p>
+<h2>Support Vector Machine en Python</h2>
+<h3>Preprocesamiento de datos</h3>
+<h5>Importación y limpieza inicial</h5>
+<p></p>
+<p>Se importa el dataset y se realiza la limpieza básica de los datos:</p>
+<ul>
+<li>En primer lugar se importa el dataset, se convierten los “?” en valores NaN y también los posibles caracteres extraños. </li>
+<li>Tras un análisis inicial de las estadísticas del dataset (obtenidas en RapidMiner), se detecta que el atributo "rbc" tiene más del 33% de valores faltantes. Debido a esta proporción elevada, se decide eliminar esta columna, ya que imputarla podría introducir sesgos significativos.</li></ul>
+<p></p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXezBMsJiSHdyyjzONAd0PMFShXCKrMJk6vSL7Kn0x_Cd7ZDgfokF40xDnaWLoxMEyjDwD9qeG4tFExZLE5ZAVLgHOzZXcykAw8wm-EXAXaFbW1E6MumClzx_LkxrJVSmgg?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<h5>Tratamiento de valores faltantes</h5>
+<p></p>
+<p>Los valores faltantes se manejan según el tipo y la distribución de los datos en cada atributo:</p>
+<p></p>
+<h6>Atributos numéricos</h6>
+<p></p>
+<ul>
+<li>"age" y "rbcc": Se identificó que tienen una distribución normal. Para estos atributos, los valores faltantes se imputaron utilizando la media.</li></ul>
+<p></p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXezBMsJiSHdyyjzONAd0PMFShXCKrMJk6vSL7Kn0x_Cd7ZDgfokF40xDnaWLoxMEyjDwD9qeG4tFExZLE5ZAVLgHOzZXcykAw8wm-EXAXaFbW1E6MumClzx_LkxrJVSmgg?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<ul>
+<li>Otros atributos numéricos: Debido a su distribución sesgada, los valores faltantes se imputaron utilizando la mediana, que es menos sensible a los valores atípicos.</li></ul>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfl5pjLaR_VdIQktmPq00zwdFNKLZ6Z11rzQesiyrDPlJoAl-2pw6VLcDvLpt7DAUQfzWBfi9klGyeX2bITkz5agu1UM5w-_ez_mCuqdZFrpzHOc_VriqZGorggihIvQZ4?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<h6>Atributos categóricos y binomiales</h6>
+<p>Los valores categóricos y binarios se imputaron utilizando la moda, ya que representa la categoría más frecuente y, por ende, es adecuada para atributos de tipo nominal.</p>
+<p>Además, como el algoritmo SVM no trabaja con atributos categóricos, se realizó una transformación a valores numéricos:</p>
+<ul>
+<li>Para atributos binarios, se mapearon las categorías a 0 y 1.</li>
+<li>Para atributos categóricos con más de dos valores, se asignaron números enteros a cada categoría.</li></ul>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXd_VPrDgLTTblBL9yPVFcyak-PHjpYyMhQGoGpfhxtMti8z_25MDC6KOiOYxdFjXihfL0CFGK332Aj7Y7_mr2e5Ua9_h0qIADDPloLm1mR-G1DwMHx-NqGTGsviSk7XkBU?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<h1><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXelV5NulN_C41WhYeOSAftE_0PcpnrAjR_8owPpcIiUzAsec3vnXH5zmWWSTVI5_R2j6Y_fH4lVX2CqNr37yx9eZgLK2Gk897tJjo5ZRSoLsFfS8NDKS6i5Ly4CrM_jtBQ?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></h1>
+<h6>Variable objetivo</h6>
+<p>La variable objetivo, que es binaria, también fue mapeada a valores numéricos:</p>
+<ul>
+<li>"notckd" se asignó como 0.</li>
+<li>"ckd" se asignó como 1.</li></ul>
+<h6>Verificación final</h6>
+<p>Se realizó una verificación exhaustiva para asegurarse de que no quedaran valores faltantes en el dataset, ya que el algoritmo SVM no tolera valores nulos. Esto fue fundamental para evitar errores durante el entrenamiento del modelo.</p>
+<p></p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXenytuarZUW2F0KFkF4rD_dKNCuDWTZCmlHJCiNcIwnEqErem6Z4prgsfAMpkjmczxcIJXj2mmKTRM3dTMk0Dy3mPyh7aiosN-xrSQ8woJJ-WvthX1EWODDJXwtaZKw2g8?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p></p>
+<h3>Proceso creado en Python</h3>
+<h5>Separación de variables predictoras y objetivo</h5>
+<p>El dataframe se dividió en dos partes:</p>
+<ul>
+<li>Variables predictoras (X): Incluyen los atributos utilizados para predecir.</li>
+<li>Variable objetivo (y): Indica si un paciente tiene o no enfermedad renal crónica.</li></ul>
+<p></p>
+<h5>División del dataset</h5>
+<p>El dataset se dividió en conjuntos de entrenamiento y prueba:</p>
+<ul>
+<li>70% de los datos se utilizó para entrenar el modelo.</li>
+<li>30% se reservó para evaluar el rendimiento del modelo en datos no vistos previamente.</li></ul>
+<p></p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdT6MIgchjDikY_mtUtKto0dpmxOK4IDjTlWzl4KlGCT3_OgR3H7ZyIs9pFAkcRrd_UnBpzgHYBQZYRi78GLK27YCkH-n1csj56fwSe3iKjcp1D2LSm8lP9vj4YgcOkvAY?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<h5>Entrenamiento del modelo</h5>
+<p>Se utilizó un modelo SVM (Support Vector Machine) debido a su capacidad para clasificar datos de manera efectiva incluso en problemas con alta dimensionalidad y donde las clases pueden no ser linealmente separables. Dado que los datos disponibles presentan una estructura relativamente sencilla y bien separada, se seleccionó un kernel lineal.</p>
+<p>El kernel lineal tiene la ventaja de ser computacionalmente menos costoso en comparación con otros kernels como el radial basis function (RBF) o el polinómico, lo que resulta en tiempos de entrenamiento más cortos. Además, su interpretación es más sencilla, lo que facilita la comprensión del modelo en términos de los pesos asignados a cada característica.</p>
+<p>El modelo se entrenó utilizando el conjunto de entrenamiento (70% del total de los datos), ajustando los parámetros internos para maximizar el margen entre las clases positivas y negativas. Durante este proceso, el algoritmo selecciona un subconjunto de datos denominados vectores de soporte, que definen el hiperplano óptimo de separación entre las clases.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXc4xW38rkHqQBFoI948MrJNuNlnCYzZ9N1zOvN-3Z3rC6792R70uVAKJWWTgFNKgAD1z4jyJFnrx8gtuv67Quo6jjrKJRgKttmJGh5IfstCBdjnuqHLKTBRpBW6ko8hHUE?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<h5>Pruebas y evaluación</h5>
+<p>Una vez entrenado, el modelo fue evaluado con el conjunto de prueba (30% de los datos). Esta evaluación tiene como objetivo medir qué tan bien generaliza el modelo a datos no vistos previamente, asegurándose de que no haya sobreajuste.</p>
+<p>Para evaluar su rendimiento, se generan varias métricas de evaluación. Estas métricas permiten analizar no sólo la precisión global del modelo, sino también su desempeño en identificar correctamente las clases positivas y negativas. Adicionalmente, se utiliza una matriz de confusión para detallar la clasificación de cada categoría, lo cual es muy importante en problemas donde las clases están desbalanceadas o tienen implicaciones clínicas importantes.</p>
+<p>También se incluye la gráfica de la curva ROC para analizar la capacidad del modelo para distinguir entre clases positivas y negativas en distintos umbrales de decisión. La curva ROC es una herramienta visual que muestra el comportamiento del modelo al variar el umbral de clasificación.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcyHUbGW9mY73-bvUIpoYIh_HcJpwLGNYmqcPU40jLvi4uGWLm9qL5mERDOKrN-mWz64FSCAaKyxZi94DIh-uRvP0fvsjnviiyGpZntcrxTYAs5AEkO5i0eVybmoqw4gA?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<h3><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcjVFNKPUglBwOh_zkTinhnYonZUMFZyzWN1uCY8xfu7zsb1RogIXEAnywcYVSK-w_Htag9WYaancn9_7FGFC8El9lZpz35Km0WzbNBSOabIAvPr-0sKmWm1V3fcZTt15Q?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></h3>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdcH0XT5tm__DYgq9ycEtzBEeomXu3ByCk3vQCOP0MgIlzqdlJJnTEekE_Lnq0y-ckRzVMyewLsZZLFyG-J1a4wap5PhPh-C-XhdtIDRyrRSGINqU4LqH1AydljSjuBoQ?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<h3>Evaluación del Modelo</h3>
+<h5>Métricas utilizadas</h5>
+<p>Se emplearon diversas métricas estándar para evaluar la calidad del modelo:</p>
+<ol start="1">
+<li>Precisión global (Accuracy Score)<br>La precisión global mide la proporción de predicciones correctas en relación con todas las predicciones realizadas. Es una métrica útil cuando las clases están equilibradas, ya que no diferencia entre los errores en las clases positivas o negativas.<br>En este caso, el modelo logró una precisión global del 98.33%, indicando que el 98.33% de las observaciones fueron clasificadas correctamente.</li>
+<li>Matriz de confusión<br>La matriz de confusión permite descomponer las predicciones en cuatro categorías:</li></ol>
+<ul>
+<li>True Positives (TP): Casos positivos correctamente clasificados.</li>
+<li>True Negatives (TN): Casos negativos correctamente clasificados.</li>
+<li>False Positives (FP): Casos negativos incorrectamente clasificados como positivos (error tipo I).</li>
+<li>False Negatives (FN): Casos positivos incorrectamente clasificados como negativos (error tipo II).</li></ul>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdj2p9VyeXMLTImRsI9PiZAgBG1ff8S94ZTVbllZGn6gRHgQVVDE8zA7pY6EKhvvoK_t-P2SNR462aLpVTF2AIF3aNdU1aGxFJxWIa8LAiSPF_qee6HN3h_Tp5cz9UCoq4?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<ol start="3">
+<li>Sensibilidad (Recall)</li></ol>
+<p>También conocida como recall, mide la proporción de casos positivos identificados correctamente. Es especialmente importante en problemas médicos o de seguridad, donde identificar falsos negativos puede tener graves consecuencias.</p>
+<p>En este modelo, la sensibilidad fue del 99%, indicando que el modelo identificó correctamente la mayoría de los casos positivos.</p>
+<ol start="4">
+<li> Especificidad</li></ol>
+<p>La especificidad mide la proporción de casos negativos identificados correctamente. Es útil para entender qué tan bien el modelo evita los falsos positivos.</p>
+<p>En este caso, la especificidad fue del 98%, lo que demuestra que el modelo es muy preciso al identificar correctamente los casos negativos.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcYqLq-94BaJDDtLSvUB0aPgJUZTZ_mcOqAsSW09vc8RiFS4atIGfe-fHd7xSJe2wZLmxNU98Q2ivH-Hj2viaueAcqlwkvqzlG0EoKpTz6LAMP8M-8ABVKWaS9ZIN-hmQ?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<ol start="5">
+<li>Reporte de Clasificación<br>Se generó un reporte de clasificación que incluye:</li></ol>
+<ul>
+<li>Precisión (Precisión): Proporción de predicciones positivas correctas sobre todas las predicciones positivas realizadas. </li>
+<li>F1-Score: Media armónica entre precisión y sensibilidad, útil para evaluar el equilibrio entre estas dos métricas. </li></ul>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfKmlM5gIQ3QVPl64BBFP1OFz0tLIbsRYugWuIAPMYx-eiChxRapXI9k0LRjTnYbRkaoTArMccmUZ2f-4-BVNh8ryoBHBy__0K4g8UJ9cYZJtNWc_OySXOIpxJjtFmzSw?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<ol start="6">
+<li>Curva ROC</li></ol>
+<p>La curva ROC (Receiver Operating Characteristic) evalúa la capacidad del modelo para distinguir entre clases positivas y negativas en diferentes umbrales de decisión.</p>
+<ul>
+<li>Ejes de la gráfica:</li></ul>
+<ul>
+<li>Eje Y: Sensibilidad (tasa de verdaderos positivos).</li>
+<li>Eje X: Tasa de falsos positivos.</li></ul>
+<ul>
+<li>Área bajo la curva (AUC):<br>Mide el rendimiento general del modelo:</li></ul>
+<ul>
+<li>AUC=0.5AUC = 0.5AUC=0.5: Clasificación aleatoria.</li>
+<li>AUC>0.9AUC > 0.9AUC>0.9: Excelente desempeño.</li></ul>
+<p>En este caso, el modelo presentó un AUC cercano a 1, indicando una alta capacidad para discriminar entre las clases positivas y negativas.</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdmAt8A0BdRulc7Swo3GzblT_X9ar0djNk5afafgPcZj6x2eunTINORr30tgiOeN7tXcydf6zdI9ISksC95FMjqR8w19n3dbQsI6M8UFa02H8BrUE9rS2bvR5116cWhM0E?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<h1>Random Forest</h1>
+<h2>Preprocesamiento de datos:</h2>
+<p>Al igual que con SVM, lo primero a realizar es importar el dataset en RapidMiner. Cabe destacar que al momento de importar el dataset, se debe modificar el tipo de dato, ya que RapidMiner no necesariamente detecta correctamente los tipos de datos de las columnas. Al seleccionar correctamente los tipos de datos (disponibles en la documentación del dataset), RapidMiner es capaz de detectar con mayor precisión los campos faltantes, representados por un signo de pregunta (?). De no realizar estas modificaciones, RapidMiner interpreta el campo como polynominal, y por lo tanto toma el carácter ? como un valor posible para el campo.</p>
+<p></p>
+<p>Una vez importado el dataset, se deben tratar los campos faltantes. En este caso los datos faltantes son representados por un ?. Con respecto a los datos categóricos, se sustituirán los datos faltantes por la moda. De lo contrario, como hay algunos campos que a pesar de ser categóricos tienen valores numéricos, otro tipo de medición podría traer problemas, ya que devolverán valores imposibles para las columnas (por ejemplo, los niveles de azúcar pueden ser 1, 2, 3, o 4, pero la media puede dar valores que no forman parte de dicho subconjunto). Para el resto de los valores (valores numéricos) se sustituyeron los datos faltantes con la media (utilizamos la media ya que de las opciones que provee RapidMiner, es la más coherente. Utilizar el mínimo y el máximo podría aumentar la cantidad de outliers aparte de que probablemente no represente bien el dato faltante, y aunque se podría calcular por ejemplo la mediana de todos los datos de forma manual y hardcodear el valor obtenido, utilizar la media es más simple, y como random forest es <a href="#id.qsvxghxnvs24">resistente a outliers</a>, aunque la media resulte ser un outlier no va a afectar en gran medida a la performance del modelo).</p>
+<p></p>
+<p>El operador para manejar datos faltantes de RapidMiner, no incluye la moda, por lo que el cálculo de la moda para cada atributo se realizó de forma manual, utilizando el bloque replace con una expresión regular que capture los signos de pregunta y los sustituya por su debida moda, calculada a mano (mediante la función =MODE de Excel se puede realizar de forma bastante eficiente).</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcrcUHxCyuIf5kjDoyrPZWn8bKWqDEDDvrok4754Z6spTzUcvhEynsiY4gTxksQ_XULHV7Y3oyEbSXdbb3uwM9lbYldAD1hWOB_5J7gCLvRQ8qXZf-b-TKjT2u9mJbzPA4?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>Esto fue posible dado que la cantidad de atributos no era muy grande, pero de tener una gran cantidad de características, se puede incluir este paso en el preprocesamiento de Python, para ingresar los datos en RapidMiner sin datos faltantes.</p>
+<p></p>
+<a></a>
+<p>Con respecto a los outliers, random forest no es sensible a los mismos, por lo que no es necesario realizar actividades para detectarlos. Esto se debe a por como funciona este modelo, ya que random forest genera múltiples árboles, y con dichos árboles se realiza una votación, por lo que aunque un árbol presente un outlier, no dominará la votación (las votaciones pueden ser por mayoría, o por una ponderación de la confianza de cada árbol). E incluso previo a la votación, durante la división de los nodos en un árbol, el mismo separará los valores para maximizar la separación entre las clases, por lo que los outliers no afectan mucho a esta división (por ejemplo, si se tiene un campo “edad” con valores 25, 30, 35, 40, 10000, la mayoría de los puntos de corte posibles para el árbol van a estar entre el 25 y el 40, ya que separan mejor las clases)</p>
+<p></p>
+<p>Por otro lado, para crear los árboles, random forest divide el dataset por atributos, y cada árbol maneja atributos distintos. Si un árbol tiene un atributo irrelevante, entonces no va a lograr dividir bien las clases (por lo que probablemente no se elija como punto de corte), y de todas formas se tendrá menos en cuenta durante la votación. Gracias a esto, tampoco es necesario realizar tareas ni de feature selection ni de normalización, ya que random forest no es un modelo que se base en el cálculo de distancias ni en comparaciones de magnitudes.</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<h3>Random Forest en RapidMiner</h3>
+<p></p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcQcPdhhGi84fQzz6rDagYW7zlWzYkorlvtwQEmm0PDb0tNviEGL60X_kN0uexBAbALskla4p5Ccr3WxGpG7FQmGs2tx6CfSsW2xFAo5RG_TwF742UHmZR0QJupblOunyI?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXejWvyG0rjXflQ5Y7Xdi5IRnWMPiLs5wHYleNHNLnvXE5uykIEf2WzyawW9HNtVL3wG9KuL2QH0DfNXT4xMQFprsHwPUnA51oW7wQFR37LxlIxXWwIVrnChzdICtaoclaU?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXf7XF3yO_U8w47UqL0_y0ub4l4NFtrFNHo9WsDfgNCxyhCDv62G7ZuKF0Y7kzHoNZZJcJUTtFL-IaxMYSdLOoGPLmq_CwY3tuzdBQtJL4vw0dclVBjVBe6BdGUqplyfDQ?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeLFQhyCB8hvxyx9125ZkgvKOJrDvhVvJdV1vCQKDvrkG5dsd79KRbagdwpgJz13KnhlSWNAmY-Me6xzHrcaL7WtWnpW9tH8T8FY8kuVn4VDa4z9VmArpn-e8z-DsMuKw?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>Al ejecutar el proceso con los siguientes parámetros en el modelo se obtuvo un buen desempeño.</p>
+<p>Aún así, se optó por modificar los parámetros para intentar mejorar el porcentaje de predicciones correctas.</p>
+<p></p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcIOlDCQjnSlxDMa46y-mVVeLncabkqKTzRR7vbrpGNzenv5s5OoyANMTbmqwjYTElQlfGMrCfGtX-1pQbomGUP6kKxN2b5N7-brgSTr-znIN35GdojxGz10Q5ALhUlYHM?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p></p>
+<p>En primera instancia, se modificó la cantidad de árboles generados, teniendo en cuenta de que un mayor número de árboles podría mejorar la estabilidad y el rendimiento del modelo, aunque ello implique un mayor costo computacional. Sin embargo, al realizar las pruebas, se observó que con una menor cantidad de árboles el modelo logró una precisión ligeramente superior, lo que nos llevó a elegir esta configuración como la más adecuada para nuestro modelo.</p>
+<p></p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdj7IG21u5Znrwuvv7sy8q7Vy-eTV5tnGHAzmGQOMafU38N6LByq9hjvKl9qWYF6bh9fuu8_83hpjAoW4SwTdWCaMdv-z4wTgq1EJD_iuw9zeYqraueEy8x9Lx44bm39w?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXf4PZIwtgV0fMliWbfUt5z1VfKySByAl_aYRAdTRtUGK-HlHXkhMLXMDHlbvHoZuftuB-xLERA3OQBYU8lNJ15msQls5F-iJuqGxjU9L1fPKYK2owwBoKXC6bkTjQwWO2Q?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p>Por otro lado, se intentó aumentar la máxima profundidad del árbol, dado que genera una mayor cantidad de puntos de corte, lo que puede separar de mejor forma las clases, pero la performance fue exactamente igual que el paso previo, por lo que se mantuvo el valor inicial de 10 nodos como profundidad máxima.</p>
+<p></p>
+<p>Finalmente, se modificó el criterio por el cual se particionan los árboles ya que este parámetro en el modelo Random Forest define el criterio o métrica que se utiliza para evaluar y seleccionar las divisiones de los nodos en los árboles de decisión. Este criterio afecta cómo se construyen los árboles individuales en el bosque y por lo tanto, puede influir significativamente en el rendimiento del modelo.</p>
+<p>En este caso, los criterios que brindaron una mejor performance fueron accuracy e information gain. Normalmente no se usa accuracy para datos médicos, ya que la mayoría de pacientes suelen no poseer la enfermedad que se intenta predecir, y dicho criterio podría predecir que el paciente nunca tiene la enfermedad, y esto podría llevar a que el modelo no se comporte de forma deseada, pero en este caso en concreto, hay más datos de gente con ckd que de gente sin ckd, por lo que no es un problema para este modelo. Por otro lado, information gain mide la entropía (incertidumbre) a la hora de cortar el árbol, y se fija que corte aporta más información (calcula la diferencia entre la entropía antes de cortar el árbol y después, por lo que siempre elige la opción que separe mejor las clases, no necesariamente la que tenga mejor precisión).<br>Para este problema en particular se utilizó information gain, ya que las clases no están balanceadas (hay más pacientes con ckd que sin ckd en el dataset), y la desventaja de information gain, que es que sobreajusta de haber un atributo con muchas categorías, no se da en este dataset. Por otro lado, es extremadamente importante detectar la gente que posee la enfermedad, ya que el peor caso es un falso negativo, donde el modelo predice que un paciente no tiene nada cuando en verdad posee la enfermedad (en caso de que el modelo predice que el paciente posee la enfermedad cuando en realidad no la posee, no tiene el mismo riesgo en la vida del paciente y es más fácil de detectar por un médico). El criterio accuracy empeora la sensibilidad si las clases no están balanceadas, mientras que information gain tiene un impacto positivo en la sensibilidad incluso con clases desbalanceadas (ya que evalúa qué tan bien un atributo separa las clases), por lo que en este caso se ha utilizado dicho criterio.</p>
+<p></p>
+<p>Se optó por seleccionar la estrategia de voto “confidence vote” ya que cada árbol en el modelo Random Forest asigna un valor de "confianza" a su predicción, basado en las probabilidades de cada clase. La clase final es determinada por la suma de estas probabilidades (pesos de confianza) de todos los árboles, en lugar de un simple conteo de votos. En este dataset ambas proveen el mismo resultado, pero dada la sensibilidad de las predicciones, resulta más apropiado el confidence vote, ya que toma en cuenta los árboles con mayor confianza.</p>
+<p></p>
+<p></p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfn380s1hoHxigOkeJRL1WrJlZf6KEAuCcOkcjGnarYFNbt8kKH_wR2IZlXp9Cg5_Tri9BniYXhsNKurugwdw_XrV7sFBUON4nxNWeTgFP2_g0qtbABwfG7zsHSd1oJ2lA?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcUUF41UPxvP3Ly5sXsaczDkgq4OLZC1Nr3vnmkqO30ZMiIU8thrcf5DHvoND9kvTvPrulZk8F23wZwFzTHVOw0Y1R-whbs8kYidvwbhY_FywZmIuMgsq-CZEXtH2bI-B0?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>Observando la matriz de confusión final podemos identificar: </p>
+<p></p>
+<p>Para la clase ckd (enfermedad renal crónica)</p>
+<ul>
+<li>Precisión: 99.20%, lo que significa que de todas las predicciones hechas para esta clase, el 99.20% fueron correctas.</li>
+<li>Recall: 99.60%, indicando que el modelo identificó correctamente el 99.60% de los casos reales de ckd.</li></ul>
+<p>Para la clase notckd (sin enfermedad renal crónica)</p>
+<ul>
+<li>Precisión: 99.33%, lo que muestra una leve ventaja en la precisión para esta clase.</li>
+<li>Recall: 98.67%, lo que indica que el modelo detectó correctamente la mayoría, aunque no todos los casos reales de notckd.</li></ul>
+<p></p>
+<p>Finalmente, se obtuvo un excelente desempeño general en la predicción de las clases. Este alto valor de precisión refleja que el modelo clasifica correctamente la mayoría de los ejemplos, con un margen de variabilidad muy bajo.</p>
+<h3>Random Forest en Python</h3>
+<p>Con respecto a la implementación en Python, las consideraciones principales son las mismas a tener en cuenta que en RapidMiner, y a su vez el preprocesamiento inicial es similar al de SVM.</p>
+<p></p>
+<p>Preprocesamiento del csv:</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXe8Cpy95fWtM_SaVf_RUzAmCT670WR7mu37WeiQeGxtuEtsXJ-AXCm-snqOZo9uP7vd-dzdQBiQ9YbdXihig0DFjdq3sPsqFgxFSxYds-lkfO4R6Cy_U7NQGag9pADYJQ?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>Este código reemplaza los valores faltantes por:</p>
+<ul>
+<li>La moda en el caso de los valores categóricos</li>
+<li>La media en el caso de las columnas numéricas con distribución Gaussiana</li>
+<li>La mediana en todos los demás casos</li></ul>
+<p></p>
+<p>Como parte del feature selection, también se elimina la columna rbc, aunque como se ha visto en secciones anteriores, por como funciona random forest, mantener esta columna no hubiera conllevado mayores problemas (pero ya queda el código genérico para los casos donde sí sea necesario).</p>
+<p></p>
+<p>Este código produce un csv con estos cambios sobre el dataset inicial, y este nuevo csv sera consumido por el siguiente codigo:</p>
+<p></p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdHqsSKwhn5ODWTzCJ0yxdezpzsAQefK2T25Rg0gR-9yMDswM6znZhuFcM3IiaFPdmY--GtCozGWM-UIARVl0SSCB1Liz4dLz_vyt8qdCxGnqBFJxck4wpAoqDs5RWt3w?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>Una vez consumido, se convierte el dataset en un dataframe.</p>
+<p>Conceptualmente, Random Forest acepta datos tanto categóricos como numéricos, pero la implementación en específico utilizada en este código solo acepta valores numéricos, por lo que se utiliza LabelEncoder para la transformación. LabelEncoder simplemente le asigna un valor diferente a las distintas clases, por lo que una clase color con valores rojo, azul, y verde, se convertirá en los valores 0, 1, y 2. Esto puede perjudicar algunos modelos como logistic regression, pero en el caso de random forest no, ya que no se fija ni opera con las magnitudes, simplemente busca el mejor punto de corte que divida las clases, por lo que es posible utilizar LabelEncoder en este caso.</p>
+<p>Luego se genera el modelo de igual forma que en RapidMiner, con 100 árboles con 10 de profundidad máxima, y utilizando entropy como criterion, que es lo más parecido que ofrece esta implementación a information gain.</p>
+<p>Después se hace un cross validation, el cual va subdividiendo el dataset en k subconjuntos (folds, en este caso k=10) y evalúa el modelo k veces, tomando un fold diferente para testing en cada iteración, para luego calcular la media de todos los resultados y así generar una performance promedio del modelo. Dentro del mismo se entrenan los modelos y se guardan métricas de performance por fold (para luego generar la media de accuracy, ver la accuracy por cada fold, sensibilidad, especificidad, etc.).</p>
+<p>Por último, se imprimen las métricas para poder visualizarlas, lo que conlleva al siguiente resultado:</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXds7d8eaEq3mPYkJsBBGcN_F_cp-0wqEGdk1PRmIhf1Dh1hFNau0ByWPXWyhEoOYD9c6Zs5nswNoGLYj8s8OvHmyLZaiofGQmfb2ebJPzpApGEbwD4BbSTA37xMy6cr9pI?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p>Este resultado es muy bueno, siendo que logra una accuracy de más del 99%.</p>
+<h1>Logistic Regression</h1>
+<h2>Preprocesamiento de datos</h2>
+<p>En el caso de regresión logística, el pre-procesamiento de datos varía con respecto a los otros modelos. De todas formas, el procesamiento del csv en sí mismo permanece igual. Lo que varía es que hay que realizar tareas previas al entrenamiento del modelo para asegurar su correcto funcionamiento (como feature selection u outlier detection, entre otras). </p>
+<h3>Logistic Regression en RapidMiner</h3>
+<p></p>
+<p>Para simplificar el proceso de manejo de datos en RapidMiner, se utilizó el csv ya preprocesado con Python previamente. El proceso de RapidMiner se compone de 3 etapas, una etapa de normalización de datos, otra de outlier detection, y una última de feature selection, donde también se entrena el modelo.<br>El proceso de RapidMiner es el siguiente:</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfRu_keBKpqGxcmhpLabYvCCPygnEDdBPbY0Dw8z7Hjb9Dmkk5V_hJi5eQvehVvOG8GvXk1IaEo8sT-_uN_2dmQs-Lt525wwxNgy2EMZeKRNQ0aKJEvUW5YteQmtmuRXdI?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>Primero se selecciona la variable objetivo (class), y luego se utiliza el operador Normalize. Dentro de este operador se usa la opción de Z-transformation, porque lo que se busca no es que todo quede en el mismo rango (normalización), si no que se quiere que los datos tengan media 0 y desviación estándar 1, para que los datos queden bajo la misma escala.</p>
+<p></p>
+<p>En la segunda etapa se aplica outlier detection, para detectar los outliers. El método utilizado fue el de distancias, que calcula las distancias entre los datos para saber si un dato está alejado o no de los demás, y esto dió como resultado unos 10 outliers. Luego con el bloque filter examples se remueven los outliers, y con el bloque select attributes se elimina la columna entera, ya que luego de haber extirpado esos datos deja de ser necesaria.</p>
+<p></p>
+<p>Por último, en la tercer etapa, como Logistic Regression precisa que los datos sean numéricos (ya que va a aplicarle una función sigmoide a los mismos), se utiliza un nominal to numeric, que procede a generar atributos con las distintas clases (One-Hot Encoding). Dentro de este bloque, se remueve la columna label de los atributos a convertir, ya que se perdería el label como tal (pasarían a existir dos columnas distintas), y de todas formas RapidMiner es capaz de detectar que el valor es nominal y lo convierte a numérico por detrás. Luego un evolutionary feature selection remueve las columnas que no resultan relevantes para el modelo.</p>
+<p><br>Dentro del bloque de feature selection, hay un cross validation con 10 folds, que dentro contiene los siguientes bloques:</p>
+<p></p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcor9Ds_2VlW-HRqY2_V4OhrZIeU2veQv3VNQmISM8E_h2FN1Y0pI6ya4h4S7k_O_B5Jjm-K3i3JC_T7VGjnMcyeFCebGkkppjIYaf8Zy4qB0YZ4gWkLFeplo_bJ37zwAQ?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>Esto entrena el modelo, realiza un testeo del mismo, y devuelve la performance del mismo. Los resultados obtenidos son los siguientes:</p>
+<p></p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeHBwVXN8dmO1zqpEbbnSh_eztKjbzcPzPMAd4paL3kJrSEaNVPUbDTwtjSiRdJ2347iqJkL6ShYiOm32wOwVtr_au4wJ_Z4cZvRI_RucQcdAEdlcp5YFxH8je6Ag7Kwg?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p>Se puede ver que el resultado es bastante bueno, aunque no tan bueno como lo obtenido con random forest o svm.</p>
+<h3>Logistic Regression en Python</h3>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfLIEXOnPCxZPbuAn_S3pj6U9-3fAVclHwW7cfocmyuZTbHyp9wYfmqPl2Na0iguPKvEUo757NEJmW-tgBrgv6mVsHH5EK8vJRpF6C2XZVu6UwMIUyq5FmKJEU68OrB3a0?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p></p>
+<p>Este programa genera un modelo de forma similar al de random forest, pero con algunas diferencias.</p>
+<p></p>
+<p>La primer diferencia, es el uso de One-Hot Encoding en lugar de LabelEncoder. Este cambio es importante, ya que como la regresión logística realiza operaciones con los datos, en caso de usar LabelEncoder puede asumir que existe un orden entre los mismos, y considerar que una clase tiene más valor que otra cuando en realidad no es así. Se podría realizar un análisis con mayor profundidad para evaluar si existe alguna columna cuyas clases sí posean un orden, y utilizar ambas One-Hot Encoding y LabelEncoder según las clases para disminuir la cantidad de columnas creadas, pero en este caso no es necesario, ya que no se genera una gran cantidad de columnas como para que afecte el resultado final.</p>
+<p></p>
+<p>La siguiente diferencia es la existencia de una etapa de feature selection, con la función VarianceThreshold() de la librería sklearn.feature_selection. Esta es una función sencilla de feature selection, la cual calcula la varianza de los datos en una columna, y si la varianza es menor a cierto umbral, elimina la característica. Esto resulta útil en columnas donde existen muchos datos iguales, ya que no aportan mucha información al modelo.</p>
+<p>En el caso de random forest, la existencia de una etapa de feature selection no era tan necesaria, ya que el modelo de por si filtra las columnas con menor relevancia, como se vió en la sección anterior, pero este no es el caso en logistic regression, ya que el modelo utiliza todas las columnas para realizar sus cálculos, y tomará en cuenta características que pueden empeorar el comportamiento del modelo. </p>
+<p>En esta etapa, se intentó utilizar un algoritmo evolutivo para realizar feature selection mediante la librería tpot (TPOTClassifier), ya que puede ser más eficiente a la hora de encontrar columnas con menor relevancia, pero se mantuvo la decisión de utilizar VarianceThreshold por su simpleza a la hora de utilizar la librería.</p>
+<p></p>
+<p>Por otro lado, se pueden realizar tareas de outlier detection, pero en este caso, al no haber una gran cantidad de outliers, no era una necesidad tan grande, por lo que no se realizó. Una posible mejora al programa sería agregar una etapa de outlier detection, en caso de usar un csv con un mayor volúmen de datos.</p>
+<p></p>
+<p>La tercer diferencia, es el uso de StandardScaler, función que realiza una estandarización de los datos. Esta función deja la media en 0 y la desviación estándar en 1, lo que permite que todas las características tengan la misma escala estadística (se estandariza y no normaliza porque no se busca que necesariamente estén en el mismo rango de 0 a 1, lo que importa es que todos los datos estén en la misma escala para que uno no tenga más peso que otro a la hora de operar)<br>Nota: De haber outliers en el dataset, estos afectan el resultado del StandardScaler, por lo que hay que tener cuidado y reducir la cantidad de outliers previo al uso de dicha función.</p>
+<p></p>
+<p>Por último se aplica el modelo de LogisticRegression, se realiza un cross validation, se entrena y testea el modelo, y se extraen métricas al igual que con random forest.<br>El resultado de la ejecución de este código es el siguiente:</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXctOWkJrQM4EF4V6zPmamNUdyD2OMvzRtOoD-5AM-HKPcPr9D_sf-cwruV0jzw_oOh67vVGvK_sb3tIj_fGanNo6sT7dOusJNevD97R-NP0yu_GbcQIilw6LQXOYGLwoPU?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p>Se puede ver en esta imagen que el resultado obtenido es realmente bueno, con una accuracy de 99.7%, donde todos los modelos creados en los 10 folds del cross validation tuvieron una accuracy del 100% menos uno, que tuvo un solo error. Cabe destacar que este resultado puede variar según el dataset, ya que en un dataset con más volúmen de datos y una mayor cantidad de outliers, es muy posible que al no tener outlier detection random forest supere en performance a este modelo, en cuyo caso habría que implementar dicha etapa en logistic regression y volver a hacer las pruebas para validar si la performance sigue siendo igual de buena o no. </p>
+<h1>Comparación de modelos</h1>
+<p>En esta sección se realizará una comparación entre los resultados de performance de los distintos modelos. A continuación se presentan imágenes de la performance de los distintos modelos:</p>
+<h3>SVM</h3>
+<h3><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdj2p9VyeXMLTImRsI9PiZAgBG1ff8S94ZTVbllZGn6gRHgQVVDE8zA7pY6EKhvvoK_t-P2SNR462aLpVTF2AIF3aNdU1aGxFJxWIa8LAiSPF_qee6HN3h_Tp5cz9UCoq4?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcYqLq-94BaJDDtLSvUB0aPgJUZTZ_mcOqAsSW09vc8RiFS4atIGfe-fHd7xSJe2wZLmxNU98Q2ivH-Hj2viaueAcqlwkvqzlG0EoKpTz6LAMP8M-8ABVKWaS9ZIN-hmQ?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></h3>
+<h3>Random Forest</h3>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXds7d8eaEq3mPYkJsBBGcN_F_cp-0wqEGdk1PRmIhf1Dh1hFNau0ByWPXWyhEoOYD9c6Zs5nswNoGLYj8s8OvHmyLZaiofGQmfb2ebJPzpApGEbwD4BbSTA37xMy6cr9pI?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcUUF41UPxvP3Ly5sXsaczDkgq4OLZC1Nr3vnmkqO30ZMiIU8thrcf5DHvoND9kvTvPrulZk8F23wZwFzTHVOw0Y1R-whbs8kYidvwbhY_FywZmIuMgsq-CZEXtH2bI-B0?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""><br><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdyp8-WcyTVI5fOEFPte_uVpYuqt7cjhElJYvExA3jg01-BMDR27CbOFGgVIGMY9Yoo7EmsRW9QGHisLjD9iLYxd4a6FCEGjMBpWc5XPLtGCdXC8LknfE-9dp1O5xSj3UM?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<h3>Logistic Regression</h3>
+<h3><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXctOWkJrQM4EF4V6zPmamNUdyD2OMvzRtOoD-5AM-HKPcPr9D_sf-cwruV0jzw_oOh67vVGvK_sb3tIj_fGanNo6sT7dOusJNevD97R-NP0yu_GbcQIilw6LQXOYGLwoPU?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></h3>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeHBwVXN8dmO1zqpEbbnSh_eztKjbzcPzPMAd4paL3kJrSEaNVPUbDTwtjSiRdJ2347iqJkL6ShYiOm32wOwVtr_au4wJ_Z4cZvRI_RucQcdAEdlcp5YFxH8je6Ag7Kwg?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdvy4waPP6Q6Khm2RJWOt0cN8kpPJo2oaI-8oVBF_h-nmB68zvx0DEfjzP6qVAxke93OvSgZPh3658Zq9rxUGKjb76KrJ-EHThfs0L3ivBolDznq8bEPCKhDzW8_V_4Uws?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p><br>        </p>
+<p>Previo a realizar una comparación, cabe destacar que de los casos donde el modelo predice de forma equivocada hay algunos más importantes que otros. Lo ideal es que el modelo no falle, pero en caso de que falle, hay casos más favorables, los cuales son inherentes a los datos con los que se trabaja. Por lo general, si uno intenta reducir la cantidad de falsos positivos, aumentan los falsos negativos, y viceversa. Esto sucede porque sí más clases se clasifican como positivas, más chances hay de que el modelo realice predicciones positivas aunque no lo sean, y sucede lo mismo pero al revés cuando se clasifican más clases como negativas. Es importante definir si la prioridad es encontrar un balance, o inclinar los errores hacia uno de los dos lados.</p>
+<p>En este caso en particular, al ser datos médicos de pacientes, es extremadamente importante reducir los falsos negativos, aunque sea a costa de los falsos positivos, ya que un falso negativo implica que un paciente fue diagnosticado sano aún teniendo la enfermedad, lo que puede hacer que la enfermedad se encuentre de forma tardía y complique la salud del paciente. Por otro lado, los falsos positivos, aunque es cierto que provocan estrés tanto en los pacientes como en los médicos (y por eso hay que evitarlos de todas formas), no son una amenaza real, ya que el paciente no tiene la enfermedad, y saldrá a la luz cuando continúen con los análisis. Por esta razón, es de vital importancia reducir los falsos negativos, para aumentar las posibilidades de tratar a la gente en etapas tempranas de la enfermedad.</p>
+<p></p>
+<p>En este punto es donde radica la diferenciación entre sensibilidad y especificidad. En el marco de este informe es de extrema importancia priorizar una alta sensibilidad (tasa de valores positivos, prioriza los predecir correctamente los valores positivos, minimizando los falsos negativos) frente a una alta especificidad (tasa de valores negativos, prioriza clasificar correctamente los valores negativos, minimizando los falsos positivos), la cual en este caso no resulta tan vital (por ejemplo, en el caso de logistic regression, aumentar el umbral por el que se dividen las clases puede aumentar la cantidad de falsos negativos, mientras que bajar el umbral aumenta la cantidad de falsos positivos).</p>
+<p></p>
+<p>Dicho esto, los tres modelos mostraron un buen rendimiento inicial, donde el peor de los casos fue de 3 errores dentro del total del dataset. Lo malo es que, en la mayoría de los casos, estos errores están inclinados a los falsos negativos, lo que implica que hay espacio de mejora para los tres modelos.</p>
+<p></p>
+<p>Al ver los resultados de accuracy para los tres modelos, resultan tener un muy buen desempeño, casi del 100%. Más aún, en el caso de logistic regression, si se evalúan los 10 modelos generados por el cross validation, solo uno de ellos tenía un error, los otros 9 modelos tuvieron una accuracy del 100%, lo que quiere decir que si se sigue trabajando en el modelo, se pueden alcanzar buenos resultados.</p>
+<p>Por otro lado, tanto random forest como svm tuvieron una accuracy un poco más baja, pero al aumentar el tamaño del dataset es probable que la situación varíe, por lo que se podría realizar una prueba con un dataset de mayor tamaño para validar si logistic regression sigue consiguiendo resultados tan elevados.</p>
+<p>La sensibilidad, tanto en random forest como en logistic regression, es menor a la especificidad, que como se evaluó previamente, no es lo ideal en este caso (salvo en el caso del modelo de random forest de RapidMiner, que tuvo más falsos positivos que falsos negativos). Por otro lado, en svm la sensibilidad fue de un 99% frente a una especificidad del 98%, lo cual implica que tiene más falsos positivos que falsos negativos, que es lo que se busca. De todas formas, la performance de logistic regression fue un poco mejor, ya que tiene la misma cantidad de falsos negativos, pero no tiene falsos positivos en el dataset evaluado.</p>
+<p></p>
+<p>Con respecto a las curvas ROC, se puede agregar el siguiente fragmento de código para generar las gráficas:</p>
+<p><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXemBEu7lA-7ZBTym6tnMtcO89cOZ-6On_kG7cKchfnVBWchA4ouYGw5mDXDu6RfzQ_7WrjcRqkcznZqD6IAdf8wtaOV4_IFF1CIgaRzOSfo2mIbZ6oNAsjDvyeT-kBxaA?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""><br><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfZwLB0WArEvjCA8Z4cxMJLSdBIRsyWuwnmTfxh77B8ReeOAJBIXWM3_XbNd5C04CznaAP9sRSxasz6xktt5_q8BWwzrpbjONw87zqlbdZEqVMiFVe_7uqLeL5k6naSUSE?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p>Nota: Este código también sirve para los otros modelos, dado que solo utilizan los resultados de las predicciones. Solo se debería cambiar el modelo utilizado.</p>
+<p></p>
+<p>Como se puede ver en la siguiente imágen:<br><img alt="" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXd8AoUW7xDU5LGNcZe7COC0kj9yKHny0bbCggTeV-iLYRGihfy1eRab9d9yfMCgXroPSiK-et6Sid9TJPC83yPwSDibxjWa1CuaM8F6fHTwVvULXgxH6GI62EvcDVPMNw?key=TIS9C_9nfF0_eRYMPqPYIltQ" title=""></p>
+<p>(Imagen extraída de <a href="https://www.themachinelearners.com/curva-roc-vs-prec-recall/">Curva ROC y AUC en Python</a>, Torres (2024))</p>
+<p></p>
+<p>La curva obtenida en los tres modelos es casi la de un perfect classifier, lo que indica que la performance del modelo es muy buena. Normalmente, estas curvas nos brindarán más información acerca de la distribución de los falsos positivos y verdaderos positivos, pero al tener una curva casi perfecta, resulta igual de fácil de interpretar que viéndolo en la matriz de confusión. Aunque es una buena señal, podría ser que los modelos se encuentren sobre ajustados, lo que implica que ante nueva información el modelo puede empeorar en gran medida. Sería un buen análisis aumentar el tamaño del dataset y ver cómo se comportan los modelos, para validar si realmente se encuentran sobre ajustados.</p>
+<p></p>
+<p>Por otra parte, resulta extraño ver diferencias tan grandes en la cantidad de valores presentes en las tres matrices de confusión, lo que implica que, o hay diferencias en el preprocesamiento de los datos, o ciertas tareas reducen o modifican el tamaño del dataset. Por ejemplo, tareas como outlier detection o feature selection pueden reducir la cantidad de valores, o la sustitución de valores faltantes puede haber quedado distinta en los tres modelos, por lo que sería un punto a revisar para validar que los modelos se hayan entrenado correctamente.<br>También es posible que la diferencia radique en los subconjuntos del dataset tomados por el cross validation, dado que a pesar de que el dataset inicial es el mismo, el conjunto de los datos que se usaron para testear por KFold puede haber sido diferente, lo que provocaría un cambio en la cantidad de verdaderos positivos y verdaderos negativos. Eso explicaría la diferencia entre las matrices de confusión, al haber utilizado shuffle=True dentro del KFold, se mezclaron los datos antes de subdividir el dataset, lo que puede haber desbalanceado la cantidad de TP y TN.</p>
+<p></p>
+<p>Para finalizar, los resultados obtenidos en los programas de Python, obtuvieron una mayor performance en general frente a los modelos de RapidMiner. Esto puede haber sido por varias razones, como por ejemplo las diferencias en las implementaciones de los modelos en las librerías de Python frente a RapidMiner, la cantidad de parámetros a editar en cada uno de los modelos, una mejor selección de valores default para los campos que no utilizamos en cada uno de los modelos, o incluso ventajas que tiene a la hora de preprocesar los datos (por ejemplo, la complejidad de obtener la moda en RapidMiner frente a Python, o la incapacidad de obtener la mediana de los datos). Esto hace que se generen diferencias inevitables entre ambos modelos, y estas diferencias pueden inclinar la balanza hacia el lado de Python.</p>
+<p></p>
+<h1>Bibliografía</h1>
+<p></p>
+<ul>
+<li>UCI Machine Learning Repository. (s. f.). <a href="https://archive.ics.uci.edu/dataset/336/chronic+kidney+disease">https://archive.ics.uci.edu/dataset/336/chronic+kidney+disease</a></li></ul>
+<p></p>
+<ul>
+<li>scikit-learn: machine learning in Python — scikit-learn 1.7.dev0 documentation. (s. f.). <a href="https://scikit-learn.org/dev/index.html">https://scikit-learn.org/dev/index.html</a></li></ul>
+<p></p>
+<ul>
+<li>Torres, L. (2024, 6 julio). Curva ROC y AUC en Python. The Machine Learners. <a href="https://www.themachinelearners.com/curva-roc-vs-prec-recall/">https://www.themachinelearners.com/curva-roc-vs-prec-recall/</a></li></ul>
+<p></p>
+<ul>
+<li>OpenAI. (2024). ChatGPT (versión de noviembre) [Modelo de lenguaje de gran tamaño]. <a href="https://chat.openai.com/chat">https://chat.openai.com/chat</a></li></ul>
+<p></p>
+<ul>
+<li>IBM. (2024, 15 octubre). Matriz de confusión. ¿Qué es una matriz de confusión? Recuperado 25 de noviembre de 2024, de <a href="https://www.ibm.com/es-es/topics/confusion-matrix">https://www.ibm.com/es-es/topics/confusion-matrix</a></li></ul>
+<p></p>
+<ul>
+<li>Clasificación: ROC y AUC. (s. f.). Google For Developers. <a href="https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc?hl=es-419">https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc?hl=es-419</a></li></ul>
+<p></p>
+<ul>
+<li>Nefropatía crónica - Síntomas y causas - Mayo Clinic. (s. f.). <a href="https://www.mayoclinic.org/es/diseases-conditions/chronic-kidney-disease/symptoms-causes/syc-20354521">https://www.mayoclinic.org/es/diseases-conditions/chronic-kidney-disease/symptoms-causes/syc-20354521</a></li></ul>
+<p></p>
+<ul>
+<li>Wesseling, C., & Weiss, I. (2017). Chronic kidney disease of unknown or nontraditional origin: a new global epidemic? Archivos de Prevención de Riesgos Laborales, 20(4), 200-202. <a href="https://doi.org/10.12961/aprl.2017.20.04.1">https://doi.org/10.12961/aprl.2017.20.04.1</a></li></ul>
+<p></p>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
